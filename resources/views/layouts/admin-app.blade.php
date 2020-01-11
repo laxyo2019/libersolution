@@ -57,15 +57,15 @@
       <ul class="app-menu">
         <li><a class="app-menu__item active" href="{{route('admin')}}"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Dashboard</span></a></li>
 
-        <li class="treeview" id="nav"><a class="app-menu__item active" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Home</span><i class="treeview-indicator fa fa-angle-right" ></i></a>
-          <ul id="togal" style="display: none;">
-          <ul class="treeview-menu {{call_user_func_array('Request::is', (array)['home*']) ? 'is-expanded' : ''}}" >
-            <li class={{call_user_func_array('Request::is', (array)['/admin/home*']) ? 'active_subtab' : ''}}><a class="treeview-item active" href="{{url('/admin/home')}}"><i class="icon fa fa-circle-o"></i> SlideBar Containt</a>
+        <li class="treeview {{ Request::segment(2) == 'product-and-services' ? 'is-expanded ' : '' || Request::segment(2) == 'product-and-services' ? 'is-expanded ' : '' || Request::segment(2) == 'platform-and-framework' ? 'is-expanded ' : ''}}"><a class="app-menu__item active" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Home</span><i class="treeview-indicator fa fa-angle-right" ></i></a>
+
+          <ul class="treeview-menu " >
+            <li class={{call_user_func_array('Request::is', (array)['/admin/home*']) ? 'active_subtab' : ''}}><a class="treeview-item active" href="{{url('admin/home')}}"><i class="icon fa fa-circle-o"></i> SlideBar Containt</a>
             </li>
 
-            <li class={{call_user_func_array('Request::is', (array)['/admin/product-and-services*']) ? 'active_subtab' : ''}}><a class="treeview-item" href="{{url('/admin/product-and-services')}}" ><i class="icon fa fa-circle-o"></i> Product And Services</a></li>
+            <li class={{call_user_func_array('Request::is', (array)['product-and-services']) ? 'active_subtab' : ''}}><a class="treeview-item" href="{{url('/admin/product-and-services')}}" ><i class="icon fa fa-circle-o"></i> Product And Services</a></li>
 
-            <li class={{call_user_func_array('Request::is', (array)['/admin/platform-and-framework*']) ? 'active_subtab' : ''}}><a class="treeview-item" href="{{url('/admin/platform-and-framework')}}" ><i class="icon fa fa-circle-o"></i> Platform and Fromeworks</a></li></ul>
+            <li class={{call_user_func_array('Request::is', (array)['/admin/platform-and-framework*']) ? 'active_subtab' : ''}}><a class="treeview-item" href="{{url('/admin/platform-and-framework')}}" ><i class="icon fa fa-circle-o"></i> Platform and Fromeworks</a></li>
 
 
           {{-- <li  id="nav" class="treeview{{call_user_func_array('Request::is', (array)['hrd*','leave*','types*','allotments*','holidays*']) ? 'is-expanded' : 'active_subtab'}}"><a class="treeview-item" href="#"><i class="icon fa fa-angle-double-right"></i>Main Content</a>
@@ -174,10 +174,10 @@
       }
     </script>
     <script>
-    $("#nav").click(function(e){
-      e.preventDefault(); 
-        $("#togal").toggle(500);
-        $("#togal").show()
+    $(".treeview-menu").click(function(e){
+      // e.preventDefault(); 
+      $("#togal").toggle(500);
+      $("#togal").show()
     });
   
 </script>
