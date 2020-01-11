@@ -58,6 +58,7 @@
     </div>
   <?php $count = 1; ?>
       @foreach($aboutData as $data)
+      @if($data->id%2==0)
     <div class="row  m-top-50" >
       <div class="col-sm-5 col-md-5">
         <div class="feature-box">
@@ -83,28 +84,31 @@
         </div>
       </div>
     </div>
-  @endforeach
-   {{--  <div class="row m-top-50">
-    	<div class="col-sm-7">
+    @else
+     <div class="row m-top-50">
+      <div class="col-sm-7">
         <div class="about-text">
-          <h3>Work as one teame</h3>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
-          <ul>
+          <h3>{{$data->title}}</h3>
+          <p>{{$data->content}}</p>
+          {{-- <ul>
             <li>Put clients at the heart</li>
             <li>Partnership</li>
             <li>Value people</li>
             <li>Respect</li>
-          </ul>
+          </ul> --}}
         </div>
       </div>
       <div class="col-sm-5 col-md-5 hidden-xs">
         <div class="feature-box one">
           <div class="shape">
-            <div class="img"><img src="images/about-img2.jpg" alt=""></div>
+            <div class="img"> <img src="{{asset('storage/images/'.$data->logo)}}" alt="Barrister"/></div>
           </div>
         </div>
       </div>
-    </div> --}}
+    </div>
+    @endif
+  @endforeach
+   
   </div>
 </div>
 
