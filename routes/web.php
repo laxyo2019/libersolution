@@ -29,6 +29,7 @@ Route::get('/contactus', 'HomeController@contactus');
 Route::get('/career', 'HomeController@career');
 Route::get('/products', 'HomeController@products');
 Route::get('/services', 'HomeController@services');
+Route::resource('/contact','ContactFormController');
 
 Auth::routes();
 
@@ -50,7 +51,6 @@ Route::resource('/admin/contactus', 'AdminSection\Contactus\ContactusController'
 Route::get('/admin/career', 'AdminSection\CareerController@careerAdmin');
 
 
-Route::resource('/contact','ContactFormController');
 Route::get('/admin/contact-data','ContactFormController@viewContactForm');
 Route::get('/admin/career/{id}', 'AdminSection\CareerController@downloadDocs')->name('career.download');
 

@@ -87,9 +87,23 @@
                     <li class="nav-item">
                         <a class="nav-link link text-white display-4" href="{{ '/career' }}">Career</a>
                     </li>
+                        @guest
+
                     <li class="nav-item">
                         <a class="nav-link link text-white display-4" href="{{ '/login' }}">Login</a>
                     </li>
+                    @else
+                        <li class="nav-item">
+                            <a class="nav-link link text-white display-4" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a> 
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                    </li>
+                    @endguest
                   </ul>                  
                 </div>
             </nav>
@@ -98,89 +112,89 @@
         @yield('content')
 
         <section>
-                    <div class="footer-wrapper">
-                          <div class="container">
-                            <div class="row">
-                              <div class="col-sm-6 col-md-4"> 
-                                <img src="images/law-icon.png" alt="" data-popupalt-original-title="null" title="" width="50px">
-                                <span class="navbar-caption-wrap ml-3">
-                                    <a class="navbar-caption text-white display-5" style="font-size:40px" href="{{ '/' }}">AAVAS</a></span>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                                <ul class="social-icons">
-                                  <li><a href="javascript:void(0)"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                  <li><a href="javascript:void(0)"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                  <li><a href="javascript:void(0)"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                                  <li><a href="javascript:void(0)"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                                  <li><a href="javascript:void(0)"> <i class="fa fa-youtube" aria-hidden="true"></i></a></li>
-                                </ul>
-                              </div>
-                              <div class="col-sm-6 col-md-5">
-                                <div class="bullet-section">
-                                  <h2><img src="images/link-icon.png" alt="">ADDITIONAL RESEARCH LINKS</h2>
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
-                                  <ul>
-                                    <li><a href="javascript:void(0)">FREQUENTLY ASKED QUESTIONS</a></li>
-                                    <li><a href="javascript:void(0)">LEGAL ADVICE</a></li>
-                                    <li><a href="javascript:void(0)">HOW TO WRITE STATEMENTS</a></li>
-                                    <li><a href="javascript:void(0)">PROMOTING CONCIOUSNESS</a></li>
-                                    <li><a href="javascript:void(0)">CULTURAL SCHEMAS</a></li>
-                                    <li><a href="javascript:void(0)">PERFORMING IN COURT</a></li>
-                                  </ul>
-                                </div>
-                              </div>
-                              <div class="col-sm-12 col-md-3">
-                                <div class="form-section">
-                                   <div class="container">
-                                    @if(session()->has('message'))
-                                      <div class="alert alert-success">
-                                          {{ session()->get('message') }}
-                                      </div>
-                                    @endif
-                                  </div>
-                                    <h2><img src="images/contact-icon.png" alt="">QUICK CONTACT</h2>
-                                    <form action="{{route('contact.store')}}" method="post">
-                                      @csrf
-                                      <div class="form-group">
-                                      <input name="name" class="form-control required" placeholder="Full Name" type="text">
-                                        @error('name')
-                                          <span class="text-danger" role="alert">
-                                              <strong>{{ $message }}</strong>
-                                          </span>
-                                        @enderror
-                                      </div>
-                                      <div class="form-group">
-                                        <input name="phone" placeholder="Phone Number" type="number" style="background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;">
-                                        @error('phone')
-                                          <span class="text-danger" role="alert">
-                                              <strong>{{ $message }}</strong>
-                                          </span>
-                                        @enderror
-                                      </div>
-                                      <div class="form-group">
-                                        <input name="email" placeholder="Your E-mail Address*" type="email">
-                                        @error('email')
-                                          <span class="text-danger" role="alert">
-                                              <strong>{{ $message }}</strong>
-                                          </span>
-                                        @enderror
-                                      </div>  
-                                      <div class="form-group">
-                                        {{-- <input name="message" placeholder="Describe your case briefly." type="text"> --}}
-                                        <textarea name="message" placeholder="Describe your case briefly." style="width: 100%"></textarea>
-                                        @error('message')
-                                          <span class="text-danger" role="alert">
-                                              <strong>{{ $message }}</strong>
-                                          </span>
-                                        @enderror
-                                      </div>
-                                      <button type="submit" class="btn">Send Message</button>
-                                    </form>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
+            <div class="footer-wrapper">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-sm-6 col-md-4"> 
+                        <img src="images/law-icon.png" alt="" data-popupalt-original-title="null" title="" width="50px">
+                        <span class="navbar-caption-wrap ml-3">
+                            <a class="navbar-caption text-white display-5" style="font-size:40px" href="{{ '/' }}">AAVAS</a></span>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                        <ul class="social-icons">
+                          <li><a href="javascript:void(0)"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                          <li><a href="javascript:void(0)"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                          <li><a href="javascript:void(0)"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                          <li><a href="javascript:void(0)"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                          <li><a href="javascript:void(0)"> <i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+                        </ul>
+                      </div>
+                      <div class="col-sm-6 col-md-5">
+                        <div class="bullet-section">
+                          <h2><img src="images/link-icon.png" alt="">ADDITIONAL RESEARCH LINKS</h2>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+                          <ul>
+                            <li><a href="javascript:void(0)">FREQUENTLY ASKED QUESTIONS</a></li>
+                            <li><a href="javascript:void(0)">LEGAL ADVICE</a></li>
+                            <li><a href="javascript:void(0)">HOW TO WRITE STATEMENTS</a></li>
+                            <li><a href="javascript:void(0)">PROMOTING CONCIOUSNESS</a></li>
+                            <li><a href="javascript:void(0)">CULTURAL SCHEMAS</a></li>
+                            <li><a href="javascript:void(0)">PERFORMING IN COURT</a></li>
+                          </ul>
                         </div>
-                </section>  
+                      </div>
+                      <div class="col-sm-12 col-md-3">
+                        <div class="form-section">
+                           <div class="container">
+                            @if(session()->has('message'))
+                              <div class="alert alert-success">
+                                  {{ session()->get('message') }}
+                              </div>
+                            @endif
+                          </div>
+                            <h2><img src="images/contact-icon.png" alt="">QUICK CONTACT</h2>
+                            <form action="{{route('contact.store')}}" method="post">
+                              @csrf
+                              <div class="form-group">
+                              <input name="name" class="form-control required" placeholder="Full Name" type="text">
+                                @error('name')
+                                  <span class="text-danger" role="alert">
+                                      <strong>{{ $message }}</strong>
+                                  </span>
+                                @enderror
+                              </div>
+                              <div class="form-group">
+                                <input name="phone" placeholder="Phone Number" type="number" style="background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;">
+                                @error('phone')
+                                  <span class="text-danger" role="alert">
+                                      <strong>{{ $message }}</strong>
+                                  </span>
+                                @enderror
+                              </div>
+                              <div class="form-group">
+                                <input name="email" placeholder="Your E-mail Address*" type="email">
+                                @error('email')
+                                  <span class="text-danger" role="alert">
+                                      <strong>{{ $message }}</strong>
+                                  </span>
+                                @enderror
+                              </div>  
+                              <div class="form-group">
+                                {{-- <input name="message" placeholder="Describe your case briefly." type="text"> --}}
+                                <textarea name="message" placeholder="Describe your case briefly." style="width: 100%"></textarea>
+                                @error('message')
+                                  <span class="text-danger" role="alert">
+                                      <strong>{{ $message }}</strong>
+                                  </span>
+                                @enderror
+                              </div>
+                              <button type="submit" class="btn">Send Message</button>
+                            </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+        </section>  
     </div>
 </body>
 </html>
