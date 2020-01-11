@@ -2,12 +2,7 @@
 use App\Models\Admin\Home;
 use App\Models\Admin\ProductAndServicesModel;
 use App\Models\Admin\PlatformAndFrameworkModel;
-use App\Models\Admin\Aboutus;
-use App\Models\Admin\ProductmastModel;
-use App\Models\Admin\ServicemastModel;
 use App\Models\Admin\FooterContent;
-use App\Models\Contactus;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -27,51 +22,21 @@ Route::get('/', function () {
 	$footer = FooterContent::all();
     return view('home',compact('slideData','productAndServices','platformAndFramework','footer'));
 });
-Route::get('/aboutus', function () {
-	$slideData = Home::all();
-	$aboutData = Aboutus::all();
-    return view('aboutus',compact('slideData','aboutData'));
-});
-Route::get('/contactus', function () {
-	$slideData = Home::all();
-	$contactData = Contactus::all();
 
-    return view('contactus',compact('slideData','contactData'));
-});
-Route::get('/career', function () {
-	$slideData = Home::all();
-    return view('career',compact('slideData'));
-});
-Route::get('/products', function () {
-	$slideData = Home::all();
-	$productsData = ProductmastModel::all();
-    return view('products',compact('slideData','productsData'));
-
-});
-Route::get('/services', function () {
-	$slideData = Home::all();
-    $servicesData = ServicemastModel::all();
-    return view('services',compact('slideData','servicesData'));
-});
-
-Route::get('/register', function () {
-	
-    return view('/');
-});
-//Auth::routes();
-
+// Route::get('/', 'HomeController@home');
+Route::get('/aboutus', 'HomeController@aboutus');
+Route::get('/contactus', 'HomeController@contactus');
+Route::get('/career', 'HomeController@career');
+Route::get('/products', 'HomeController@products');
+Route::get('/services', 'HomeController@services');
 
 Auth::routes();
+
+Route::group(['middleware' => 'auth'], function(){
+	
 Route::get('/admin', 'HomeController@index')->name('admin');
 
-// Route::get('/home', 'HomeController@index')->name('home');
-
-// Auth::routes();
-
-// Route::get('/home', 'HomeController@index')->name('home');
-
 Route::resource('/admin/home', 'AdminSection\Home\SlidebarController');
-// Route::resource('/admin/main', 'AdminSection\Home\MainController');
 Route::resource('/admin/product-and-services', 'AdminSection\Home\ProductAndServices');
 Route::resource('/admin/platform-and-framework', 'AdminSection\Home\PlatformAndFramework');
 Route::resource('/admin/aboutus', 'AdminSection\About\AboutUsController');
@@ -84,16 +49,11 @@ Route::resource('/career', 'AdminSection\CareerController');
 Route::resource('/admin/contactus', 'AdminSection\Contactus\ContactusController');
 Route::get('/admin/career', 'AdminSection\CareerController@careerAdmin');
 
-// Route::resource('/admin/contact-form', 'AdminSection\Contactus\ContactusController');
-
 
 Route::resource('/contact','ContactFormController');
 Route::get('/admin/contact-data','ContactFormController@viewContactForm');
-
-
-// Route::get('/home','CommanHomeontroller');
-
 Route::get('/admin/career/{id}', 'AdminSection\CareerController@downloadDocs')->name('career.download');
 
+});
 // Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
-Route::get('/admin/logout', 'HomeController@logout')->name('logout');
+// Route::get('/admin/logout', 'HomeController@logout')->name('logout');
