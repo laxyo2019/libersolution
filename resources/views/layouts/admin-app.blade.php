@@ -25,7 +25,7 @@
   </head>
   <body class="app sidebar-mini">
     <!-- Navbar-->
-    <header class="app-header"><a class="app-header__logo" href="index.html">Liber</a>
+    <header class="app-header"><a class="app-header__logo" href="{{route('admin')}}">Liber</a>
       <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
       <!-- Navbar Right Menu-->
       <ul class="app-nav">
@@ -57,49 +57,33 @@
       <ul class="app-menu">
         <li><a class="app-menu__item active" href="{{route('admin')}}"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Dashboard</span></a></li>
 
-        <li class="treeview {{ Request::segment(2) == 'product-and-services' ? 'is-expanded ' : '' || Request::segment(2) == 'product-and-services' ? 'is-expanded ' : '' || Request::segment(2) == 'platform-and-framework' ? 'is-expanded ' : ''}}"><a class="app-menu__item active" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Home</span><i class="treeview-indicator fa fa-angle-right" ></i></a>
+        <li class="treeview {{ Request::segment(2) == 'home' ? 'is-expanded ' : '' || Request::segment(2) == 'product-and-services' ? 'is-expanded ' : '' || Request::segment(2) == 'platform-and-framework' ? 'is-expanded ' : ''}}"><a class="app-menu__item active" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Home</span><i class="treeview-indicator fa fa-angle-right" ></i></a>
 
           <ul class="treeview-menu " >
-            <li class={{call_user_func_array('Request::is', (array)['/admin/home*']) ? 'active_subtab' : ''}}><a class="treeview-item active" href="{{url('admin/home')}}"><i class="icon fa fa-circle-o"></i> SlideBar Containt</a>
+            <li class={{call_user_func_array('Request::is', (array)['/admin/home*']) ? 'active_subtab' : ''}}><a class="treeview-item active" href="{{url('admin/home')}}"><i class="icon fa fa-podcast"></i> SlideBar Content</a>
             </li>
 
-            <li class={{call_user_func_array('Request::is', (array)['product-and-services']) ? 'active_subtab' : ''}}><a class="treeview-item" href="{{url('/admin/product-and-services')}}" ><i class="icon fa fa-circle-o"></i> Product And Services</a></li>
+            <li class={{call_user_func_array('Request::is', (array)['product-and-services']) ? 'active_subtab' : ''}}><a class="treeview-item" href="{{url('/admin/product-and-services')}}" ><i class="fa fa-shopping-basket"></i> Product And Services</a></li>
 
-            <li class={{call_user_func_array('Request::is', (array)['/admin/platform-and-framework*']) ? 'active_subtab' : ''}}><a class="treeview-item" href="{{url('/admin/platform-and-framework')}}" ><i class="icon fa fa-circle-o"></i> Platform and Fromeworks</a></li>
+            <li class={{call_user_func_array('Request::is', (array)['/admin/platform-and-framework*']) ? 'active_subtab' : ''}}><a class="treeview-item" href="{{url('/admin/platform-and-framework')}}" ><i class="fa fa-sitemap"></i> Platform and Fromeworks</a></li>
 
-
-          {{-- <li  id="nav" class="treeview{{call_user_func_array('Request::is', (array)['hrd*','leave*','types*','allotments*','holidays*']) ? 'is-expanded' : 'active_subtab'}}"><a class="treeview-item" href="#"><i class="icon fa fa-angle-double-right"></i>Main Content</a>
-        </li> 
-         <ul id="togal" style="display: none;">
-          <li class={{call_user_func_array('Request::is', (array)['leave-management/type*']) ? 'active_subtab' : ''}}><a class="treeview-item" href=""></i> Leave Type</a>
-            </li>
-          <li class={{call_user_func_array('Request::is', (array)['leave-management/allotment*']) ? 'active_subtab' : ''}}><a class="treeview-item" href=""></i> Leave Allotment</a>
-            </li>
-          <li class={{call_user_func_array('Request::is', (array)['leave-management/holidays*']) ? 'active_subtab' : ''}}><a class="treeview-item" href=""></i>Holidays</a>
-            </li>
-        </ul> --}}
-            {{-- <li><a class="treeview-item" href="ui-cards.html"><i class="icon fa fa-circle-o"></i> Ffooter Containts</a></li> --}}
           </ul>
         </li>
         <li class="treeview {{call_user_func_array('Request::is', (array)['/admin/aboutus*']) ? 'is-expanded' : ''}}"><a class="app-menu__item " href="{{url('/admin/aboutus')}}"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">About Us</span></a></li>
         <li><a class="app-menu__item" href="{{url('/admin/contactus')}}"><i class="app-menu__icon fa fa-user-circle"></i><span class="app-menu__label">Contact Us</span></a></li>
 
-        
-        <li><a class="app-menu__item" href="{{url('/admin/career')}}"><i class="app-menu__icon fa fa-graduation-cap"></i><span class="app-menu__label">Career</span></a></li>
-
         <li><a class="app-menu__item" href="{{url('/admin/our-products')}}"><i class="app-menu__icon fab fa-product-hunt"></i><span class="app-menu__label">Our Products</span></a></li>
 
-        <li><a class="app-menu__item" href="{{url('/admin/our-services')}}"><i class="app-menu__icon fa fa-asterisk"></i><span class="app-menu__label">Our Services</span></a></li>
-        {{--  <li class="treeview"><a class="app-menu__item" href="{{url('admin/footer-contents')}}" data-toggle="treeview"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">All Footer Contents</span><i class="treeview-indicator fa fa-angle-right"></i></a>
-          <ul class="treeview-menu">
-            <li><a class="treeview-item" href="table-basic.html"><i class="icon fa fa-circle-o"></i> Basic Tables</a></li>
-            <li><a class="treeview-item" href="table-data-table.html"><i class="icon fa fa-circle-o"></i> Data Tables</a></li>
-          </ul>
-        </li> --}}
+        <li><a class="app-menu__item" href="{{url('/admin/our-services')}}"><i class="app-menu__icon fa fa-rss-square"></i><span class="app-menu__label">Our Services</span></a></li>
+
+        <li><a class="app-menu__item" href="{{url('/admin/career')}}"><i class="app-menu__icon fa fa-graduation-cap"></i><span class="app-menu__label">Career Form Data</span></a></li>
+
+        <li><a class="app-menu__item" href="{{url('/admin/contact-data')}}"><i class="app-menu__icon fa fa-address-card"></i><span class="app-menu__label">Contact Form Data</span></a></li>
+
         <li><a class="app-menu__item" href="{{url('admin/footer-contents')}}"><i class="app-menu__icon  fa fa-bars"></i><span class="app-menu__label">All Footer Contents</span></a></li>
+
         <li><a class="app-menu__item"  href="{{route('logout')}}"><i class="fa fa-sign-out fa-lg"></i> Logout</a></li>
 
-        {{-- <li><a class="app-menu__item" href="docs.html"><i class="app-menu__icon fa fa-file-code-o"></i><span class="app-menu__label">Docs</span></a></li> --}}
       </ul>
     </aside>
 
@@ -113,8 +97,16 @@
     <!-- The javascript plugin to display page loading on top-->
     <script src="{{ asset('js/plugins/pace.min.js')}}"></script>
     <!-- Page specific javascripts-->
-    <script type="text/javascript" src="{{ asset('js/plugins/chart.js')}}"></script>
-
+      <script type="text/javascript" src="{{ asset('js/plugins/chart.js')}}"></script>
+  <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+      <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+      {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> --}}
+  <script>
+      $(document).ready(function(){
+      $('#ClientsTable').DataTable(); 
+  });
+  </script>
     <script type="text/javascript">
       var data = {
         labels: ["January", "February", "March", "April", "May"],

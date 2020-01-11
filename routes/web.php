@@ -80,13 +80,16 @@ Route::resource('/admin/our-services', 'AdminSection\OurServicesController');
 
 Route::resource('/admin/footer-contents', 'AdminSection\FooterController');
 Route::resource('/career', 'AdminSection\CareerController');
-Route::get('/admin/career', 'AdminSection\CareerController@careerAdmin');
 
 Route::resource('/admin/contactus', 'AdminSection\Contactus\ContactusController');
+Route::get('/admin/career', 'AdminSection\CareerController@careerAdmin');
+
+// Route::resource('/admin/contact-form', 'AdminSection\Contactus\ContactusController');
 
 
+Route::resource('/contact','ContactFormController');
+Route::get('/admin/contact-data','ContactFormController@viewContactForm');
 
-Route::resource('/contact','ContactController');
 
 // Route::get('/home','CommanHomeontroller');
 
