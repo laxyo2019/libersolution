@@ -16,9 +16,8 @@ class ContactusController extends Controller
      */
     public function index()
     {
-        // dd('sd');
         $data = Contactus::all();
-        return view('admin.contact-us.index',compact('data'));
+            return view('admin.contact-us.index',compact('data'));
     }
 
     /**
@@ -41,20 +40,14 @@ class ContactusController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate(['title'=>'required','content'=>'required','logo'=>'required']);
-        // dd($data);
-
             $filename = $request->file('logo')->getClientOriginalName();
-                $extension = $request->file('logo')->getClientOriginalExtension();
-                $fileNameToStore = $filename;              
-                $path = $request->file('logo')->storeAs('public/images',$fileNameToStore);
-                $data['logo'] = $fileNameToStore;
-
+            $extension = $request->file('logo')->getClientOriginalExtension();
+            $fileNameToStore = $filename;              
+            $path = $request->file('logo')->storeAs('public/images',$fileNameToStore);
+            $data['logo'] = $fileNameToStore;
             $data1 = Contactus::create($data);
             if ($data1) {
-            return redirect()->back()->with('message', 'Contactus add successfully');
-            }else{
-            return redirect()->back()->with('messageError', 'Contactus Not added');
-
+                return redirect()->back()->with('message', 'Contactus add successfully');
             }
     }
 
@@ -78,7 +71,7 @@ class ContactusController extends Controller
     public function edit($id)
     {
         $data = Contactus::find($id);
-        return view('admin.contact-us.edit',compact('data'));
+            return view('admin.contact-us.edit',compact('data'));
     }
 
     /**
@@ -91,10 +84,11 @@ class ContactusController extends Controller
     public function update(Request $request, $id)
     {
         
-            $data = $request->validate(['title'=>'required','content'=>'required','logo'=>'required']);
-            // dd($data);
+            $data = $request->validate(['title'=>'required','content'=>'required']);
+
+
             if($request->hasFile('logo')){
-            $filename = $request->file('logo')->getClientOriginalName();
+                $filename = $request->file('logo')->getClientOriginalName();
                 $extension = $request->file('logo')->getClientOriginalExtension();
                 $fileNameToStore = $filename;              
                 $path = $request->file('logo')->storeAs('public/images',$fileNameToStore);
@@ -103,12 +97,9 @@ class ContactusController extends Controller
                 $file  = Contactus::find($id);
                 $data['logo'] = $file->logo;            
             }
-            $data1 = Contactus::where('id', $id)->update($data); 
+                $data1 = Contactus::where('id', $id)->update($data); 
             if ($data1) {
                 return redirect()->back()->with('message', 'Contactus updated successfully');
-            }else{
-                return redirect()->back()->with('messageError', 'Contactus Not updated');
-
             }
     }
 

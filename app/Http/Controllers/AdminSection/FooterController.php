@@ -16,8 +16,6 @@ class FooterController extends Controller
      */
     public function index()
     {
-        //
-        // dd('sad');
         $data = FooterContent::get();
         return view('admin.FooterContents.index',compact('data'));
     }
@@ -29,7 +27,6 @@ class FooterController extends Controller
      */
     public function create()
     {
-        //
          return view('admin.FooterContents.create');
     }
 
@@ -41,28 +38,26 @@ class FooterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
         $data = $request->validate(['heading'=>'required','content'=>'required','logo'=>'required']);
         if($request->hasFile('logo')){      
-                $filename = $request->file('logo')->getClientOriginalName();
-                $extension = $request->file('logo')->getClientOriginalExtension();
-                $fileNameToStore = date('d-m-Y').'_'.$filename;
+            $filename = $request->file('logo')->getClientOriginalName();
+            $extension = $request->file('logo')->getClientOriginalExtension();
+            $fileNameToStore = date('d-m-Y').'_'.$filename;
 
-                    $path = $request->file('logo')->storeAs('public/images',$fileNameToStore);
-                    $data['logo'] = $fileNameToStore;
-                    $data1 = FooterContent::create($data);
-                    if ($data1) {
-                        return redirect()->back()->with('message', 'Footer content add successfully');
-                    }
+                $path = $request->file('logo')->storeAs('public/images',$fileNameToStore);
+                $data['logo'] = $fileNameToStore;
+                $data1 = FooterContent::create($data);
+                if ($data1) {
+                    return redirect()->back()->with('message', 'Footer content add successfully');
+                }
             }
             else{
                 $fileNameToStore = '';
             }
 
             $data = $request->validate(['heading'=>'required','content'=>'required','logo'=>'required']);
-        
-
-            $filename = $request->file('file')->getClientOriginalName();
+                $filename = $request->file('file')->getClientOriginalName();
                 $extension = $request->file('file')->getClientOriginalExtension();
                 $fileNameToStore = $filename;              
                 $path = $request->file('file')->storeAs('public/images',$fileNameToStore);
@@ -70,10 +65,7 @@ class FooterController extends Controller
 
             $data1 = FooterContent::create($data);
             if ($data1) {
-            return redirect()->back()->with('message', 'Slidebar add successfully');
-            }else{
-            return redirect()->back()->with('messageError', 'Slidebar Not added');
-
+                return redirect()->back()->with('message', 'Slidebar add successfully');
             }
     }
 
@@ -109,26 +101,21 @@ class FooterController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // $data = $request->validate(['heading'=>'required','content'=>'required']);
-        //     if($data){
-        //         FooterContent::where('id',$id)->update($data);
-        //         return redirect()->back()->with('success','update  Successfully.');
-        //      }
-
-        $data = $request->validate(['heading'=>'required','content'=>'required','logo'=>'required']);
-        if($request->hasFile('logo')){      
+    
+       $data = $request->validate(['heading'=>'required','content'=>'required']);
+            if($request->hasFile('logo')){
                 $filename = $request->file('logo')->getClientOriginalName();
                 $extension = $request->file('logo')->getClientOriginalExtension();
-                $fileNameToStore = date('d-m-Y').'_'.$filename;
-
-                    $path = $request->file('logo')->storeAs('public/images',$fileNameToStore);
-                    $data['logo'] = $fileNameToStore;
-                   $data1 = FooterContent::where('id',$id)->update($data);
-                    if ($data1) {
-                        return redirect()->back()->with('message', 'Footer content updated successfully');
-                    }
+                $fileNameToStore = $filename;              
+                $path = $request->file('logo')->storeAs('public/images',$fileNameToStore);
+                $data['logo'] = $fileNameToStore;          
             }else{
-                $fileNameToStore = '';
+                $file  = FooterContent::find($id);
+                $data['logo'] = $file->logo;            
+            }
+            $data1 = FooterContent::where('id', $id)->update($data); 
+            if ($data1) {
+                return redirect()->back()->with('message', 'Footer updated successfully');
             }
     }
 
@@ -140,7 +127,6 @@ class FooterController extends Controller
      */
     public function destroy($id)
     {
-        //
         $delete = FooterContent::destroy($id);
         if($delete){
            return redirect()->back()->with('message', 'Record deleted successfully');

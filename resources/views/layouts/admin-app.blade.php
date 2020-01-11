@@ -34,52 +34,13 @@
           <button class="app-search__button"><i class="fa fa-search"></i></button>
         </li>
         <!--Notification Menu-->
-        <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Show notifications"><i class="fa fa-bell-o fa-lg"></i></a>
-          <ul class="app-notification dropdown-menu dropdown-menu-right">
-            <li class="app-notification__title">You have 4 new notifications.</li>
-            <div class="app-notification__content">
-              <li><a class="app-notification__item" href="javascript:;"><span class="app-notification__icon"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-envelope fa-stack-1x fa-inverse"></i></span></span>
-                  <div>
-                    <p class="app-notification__message">Lisa sent you a mail</p>
-                    <p class="app-notification__meta">2 min ago</p>
-                  </div></a></li>
-              <li><a class="app-notification__item" href="javascript:;"><span class="app-notification__icon"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-danger"></i><i class="fa fa-hdd-o fa-stack-1x fa-inverse"></i></span></span>
-                  <div>
-                    <p class="app-notification__message">Mail server not working</p>
-                    <p class="app-notification__meta">5 min ago</p>
-                  </div></a></li>
-              <li><a class="app-notification__item" href="javascript:;"><span class="app-notification__icon"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-success"></i><i class="fa fa-money fa-stack-1x fa-inverse"></i></span></span>
-                  <div>
-                    <p class="app-notification__message">Transaction complete</p>
-                    <p class="app-notification__meta">2 days ago</p>
-                  </div></a></li>
-              <div class="app-notification__content">
-                <li><a class="app-notification__item" href="javascript:;"><span class="app-notification__icon"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-envelope fa-stack-1x fa-inverse"></i></span></span>
-                    <div>
-                      <p class="app-notification__message">Lisa sent you a mail</p>
-                      <p class="app-notification__meta">2 min ago</p>
-                    </div></a></li>
-                <li><a class="app-notification__item" href="javascript:;"><span class="app-notification__icon"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-danger"></i><i class="fa fa-hdd-o fa-stack-1x fa-inverse"></i></span></span>
-                    <div>
-                      <p class="app-notification__message">Mail server not working</p>
-                      <p class="app-notification__meta">5 min ago</p>
-                    </div></a></li>
-                <li><a class="app-notification__item" href="javascript:;"><span class="app-notification__icon"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-success"></i><i class="fa fa-money fa-stack-1x fa-inverse"></i></span></span>
-                    <div>
-                      <p class="app-notification__message">Transaction complete</p>
-                      <p class="app-notification__meta">2 days ago</p>
-                    </div></a></li>
-              </div>
-            </div>
-            <li class="app-notification__footer"><a href="#">See all notifications.</a></li>
-          </ul>
-        </li>
+        
         <!-- User Menu-->
         <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="fa fa-user fa-lg"></i></a>
           <ul class="dropdown-menu settings-menu dropdown-menu-right">
-            <li><a class="dropdown-item" href="page-user.html"><i class="fa fa-cog fa-lg"></i> Settings</a></li>
-            <li><a class="dropdown-item" href="page-user.html"><i class="fa fa-user fa-lg"></i> Profile</a></li>
-            <li><a class="dropdown-item" href="page-login.html"><i class="fa fa-sign-out fa-lg"></i> Logout</a></li>
+            <li><a class="dropdown-item" href="#"><i class="fa fa-cog fa-lg"></i> Settings</a></li>
+            <li><a class="dropdown-item" href="#"><i class="fa fa-user fa-lg"></i> Profile</a></li>
+            <li><a class="dropdown-item" href="{{route('logout')}}"><i class="fa fa-sign-out fa-lg"></i> Logout</a></li>
           </ul>
         </li>
       </ul>
@@ -94,15 +55,17 @@
         </div>
       </div>
       <ul class="app-menu">
-        <li><a class="app-menu__item active" href="{{route('admin-dashboard')}}"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Dashboard</span></a></li>
-        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Home</span><i class="treeview-indicator fa fa-angle-right"></i></a>
-          <ul class="treeview-menu">
-            <li><a class="treeview-item" href="{{url('/admin/home')}}"><i class="icon fa fa-circle-o"></i> SlideBar Containt</a>
+        <li><a class="app-menu__item active" href="{{route('admin')}}"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Dashboard</span></a></li>
+
+        <li class="treeview" id="nav"><a class="app-menu__item active" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Home</span><i class="treeview-indicator fa fa-angle-right" ></i></a>
+          <ul id="togal" style="display: none;">
+          <ul class="treeview-menu {{call_user_func_array('Request::is', (array)['home*']) ? 'is-expanded' : ''}}" >
+            <li class={{call_user_func_array('Request::is', (array)['/admin/home*']) ? 'active_subtab' : ''}}><a class="treeview-item active" href="{{url('/admin/home')}}"><i class="icon fa fa-circle-o"></i> SlideBar Containt</a>
             </li>
 
-            <li><a class="treeview-item" href="{{url('/admin/product-and-services')}}" ><i class="icon fa fa-circle-o"></i> Product And Services</a></li>
+            <li class={{call_user_func_array('Request::is', (array)['/admin/product-and-services*']) ? 'active_subtab' : ''}}><a class="treeview-item" href="{{url('/admin/product-and-services')}}" ><i class="icon fa fa-circle-o"></i> Product And Services</a></li>
 
-            <li><a class="treeview-item" href="{{url('/admin/platform-and-framework')}}" ><i class="icon fa fa-circle-o"></i> Platform and Fromeworks</a></li>
+            <li class={{call_user_func_array('Request::is', (array)['/admin/platform-and-framework*']) ? 'active_subtab' : ''}}><a class="treeview-item" href="{{url('/admin/platform-and-framework')}}" ><i class="icon fa fa-circle-o"></i> Platform and Fromeworks</a></li></ul>
 
 
           {{-- <li  id="nav" class="treeview{{call_user_func_array('Request::is', (array)['hrd*','leave*','types*','allotments*','holidays*']) ? 'is-expanded' : 'active_subtab'}}"><a class="treeview-item" href="#"><i class="icon fa fa-angle-double-right"></i>Main Content</a>
@@ -118,22 +81,23 @@
             {{-- <li><a class="treeview-item" href="ui-cards.html"><i class="icon fa fa-circle-o"></i> Ffooter Containts</a></li> --}}
           </ul>
         </li>
-        <li><a class="app-menu__item" href="{{url('/admin/aboutus')}}"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">About Us</span></a></li>
-        <li><a class="app-menu__item" href="{{url('/admin/contactus')}}"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Contact Us</span></a></li>
+        <li class="treeview {{call_user_func_array('Request::is', (array)['/admin/aboutus*']) ? 'is-expanded' : ''}}"><a class="app-menu__item " href="{{url('/admin/aboutus')}}"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">About Us</span></a></li>
+        <li><a class="app-menu__item" href="{{url('/admin/contactus')}}"><i class="app-menu__icon fa fa-user-circle"></i><span class="app-menu__label">Contact Us</span></a></li>
 
         
-        <li><a class="app-menu__item" href="{{url('/admin/career')}}"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Career</span></a></li>
+        <li><a class="app-menu__item" href="{{url('/admin/career')}}"><i class="app-menu__icon fa fa-graduation-cap"></i><span class="app-menu__label">Career</span></a></li>
 
-        <li><a class="app-menu__item" href="{{url('/admin/our-products')}}"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Our Products</span></a></li>
+        <li><a class="app-menu__item" href="{{url('/admin/our-products')}}"><i class="app-menu__icon fab fa-product-hunt"></i><span class="app-menu__label">Our Products</span></a></li>
 
-        <li><a class="app-menu__item" href="{{url('/admin/our-services')}}"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Services</span></a></li>
+        <li><a class="app-menu__item" href="{{url('/admin/our-services')}}"><i class="app-menu__icon fa fa-asterisk"></i><span class="app-menu__label">Our Services</span></a></li>
         {{--  <li class="treeview"><a class="app-menu__item" href="{{url('admin/footer-contents')}}" data-toggle="treeview"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">All Footer Contents</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
             <li><a class="treeview-item" href="table-basic.html"><i class="icon fa fa-circle-o"></i> Basic Tables</a></li>
             <li><a class="treeview-item" href="table-data-table.html"><i class="icon fa fa-circle-o"></i> Data Tables</a></li>
           </ul>
         </li> --}}
-        <li><a class="app-menu__item" href="{{url('admin/footer-contents')}}"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">All Footer Contents</span></a></li>
+        <li><a class="app-menu__item" href="{{url('admin/footer-contents')}}"><i class="app-menu__icon  fa fa-bars"></i><span class="app-menu__label">All Footer Contents</span></a></li>
+        <li><a class="app-menu__item"  href="{{route('logout')}}"><i class="fa fa-sign-out fa-lg"></i> Logout</a></li>
 
         {{-- <li><a class="app-menu__item" href="docs.html"><i class="app-menu__icon fa fa-file-code-o"></i><span class="app-menu__label">Docs</span></a></li> --}}
       </ul>
@@ -212,8 +176,8 @@
     <script>
     $("#nav").click(function(e){
       e.preventDefault(); 
-      $("#togal").toggle(500);
-      $("#togal").show()
+        $("#togal").toggle(500);
+        $("#togal").show()
     });
   
 </script>

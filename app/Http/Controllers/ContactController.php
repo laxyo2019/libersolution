@@ -36,7 +36,7 @@ class ContactController extends Controller
     public function store(Request $request)
     {
         
-        $data = $request->validate(['phone'=>'required','email'=>'required','message'=>'required']);
+        $data = $request->validate(['name'=>'required','phone'=>'required','email'=>'required','message'=>'required']);
         if($data){
             ContactForm::create($data);
             return redirect()->back()->with('success','Send  Successfully.');

@@ -63,15 +63,15 @@
   <?php $count = 1; ?>
     @foreach($servicesData as $servicesDatas)
       <div class="col-md-4 col-sm-6" >
-        <div class="service-item" style="height: 500px;">
+        <div class="service-item" style="overflow: scroll;max-height: 400px;min-height: 400px;">
           <h3>{{ $servicesDatas->heading}}</h3>
-          <div >
+          <div class="more">
             <p>{{ $servicesDatas->content}}</p>
           </div>
           {{-- <a href="javascript:void(0)">Read More</a> --}}
-          <a href="javascript:void(0)" class="show_hide" data-content="toggle-text">Read More</a>
+          {{-- <a href="javascript:void(0)" class="show_hide" data-content="toggle-text">Read More</a> --}}
           {{-- <div class="icon-box"><img src="images/service-item-icon1.png" alt=""></div> --}}
-          <div class="icon-box"><a href="#"><img src="{{asset('storage/images/'.$servicesDatas->logo)}}" alt="" width="50%" height="50%"></a></div>
+          <div {{-- class="icon-box" --}}><a href="#"><img src="{{asset('storage/images/'.$servicesDatas->logo)}}" alt="" width="50%" height="50%"></a></div>
         </div>
       </div>
     @endforeach
@@ -89,4 +89,62 @@
 // $('.' + $(this).attr('data-content')).slideUp();
 // });
 </script>
+<script>
+ $(document).ready(function() {
+  var showChar = 500;
+  var ellipsestext = "...";
+  var moretext = "less";
+  var lesstext = "more";
+  $('.more').each(function() {
+    var content = $(this).html();
+
+    if(content.length > showChar) {
+
+      var c = content.substr(0, showChar);
+      var h = content.substr(showChar-1, content.length - showChar);
+
+      var html = c + '<span class="moreellipses">' + ellipsestext+ '&nbsp;</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="morelink">' + moretext + '</a></span>';
+
+      $(this).html(html);
+    }
+
+  });
+
+  $(".morelink").click(function(){
+    if($(this).hasClass("less")) {
+      $(this).removeClass("less");
+      $(this).html(moretext);
+    } else {
+      $(this).addClass("less");
+      $(this).html(lesstext);
+    }
+    $(this).parent().prev().toggle();
+    $(this).prev().toggle();
+    return false;
+  });
+});
+</script>
+<script type="text/javascript">
+    $('.carousel').carousel();
+</script>
+<style type="text/css">
+  a {
+  color: #0254EB
+}
+a:visited {
+  color: #0254EB
+}
+a.morelink {
+  text-decoration:none;
+  outline: none;
+}
+.morecontent span {
+  display: none;
+}
+.comment {
+  width: 400px;
+  background-color: #f0f0f0;
+  margin: 10px;
+}
+</style>
 @endsection

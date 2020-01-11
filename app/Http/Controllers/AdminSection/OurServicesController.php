@@ -15,10 +15,8 @@ class OurServicesController extends Controller
      */
     public function index()
     {
-        //
-        // dd('sad');
+        
         $data = ServicemastModel::get();
-        // dd($data);
         return view('admin.our-services.index',compact('data'));
     }
 
@@ -29,8 +27,7 @@ class OurServicesController extends Controller
      */
     public function create()
     {
-        //
-         return view('admin.our-services.create');
+        return view('admin.our-services.create');
     }
 
     /**
@@ -51,10 +48,7 @@ class OurServicesController extends Controller
 
             $data1 = ServicemastModel::create($data);
             if ($data1) {
-            return redirect()->back()->with('message', 'Service added successfully');
-            }else{
-            return redirect()->back()->with('messageError', 'Service Not added');
-
+                return redirect()->back()->with('message', 'Service added successfully');
             }
     }
 
@@ -90,22 +84,22 @@ class OurServicesController extends Controller
      */
     public function update(Request $request, $id)
     {
-       // dd($request);
-            $data = $request->validate(['heading'=>'required','content'=>'required','logo'=>'required']);
-
-            $filename = $request->file('logo')->getClientOriginalName();
+          $data = $request->validate(['heading'=>'required','content'=>'required']);
+          if($request->hasFile('logo')){
+                $filename = $request->file('logo')->getClientOriginalName();
                 $extension = $request->file('logo')->getClientOriginalExtension();
                 $fileNameToStore = $filename;              
                 $path = $request->file('logo')->storeAs('public/images',$fileNameToStore);
-                $data['logo'] = $fileNameToStore;
-
-            $data1 = ServicemastModel::where('id',$id)->update($data);
-            if ($data1) {
-            return redirect()->back()->with('message', 'Service updated successfully');
+                $data['logo'] = $fileNameToStore;          
             }else{
-            return redirect()->back()->with('messageError', 'Service Not updated');
-
+                $file  = ServicemastModel::find($id);
+                $data['logo'] = $file->logo;            
             }
+            $data1 = ServicemastModel::where('id', $id)->update($data); 
+            if ($data1) {
+                return redirect()->back()->with('message', 'our-services updated successfully');
+            }
+           
     }
 
     /**
@@ -116,7 +110,6 @@ class OurServicesController extends Controller
      */
     public function destroy($id)
     {
-        //
         $delete = ServicemastModel::destroy($id);
         if($delete){
            return redirect()->back()->with('message', 'Record deleted successfully');

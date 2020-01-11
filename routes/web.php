@@ -6,7 +6,7 @@ use App\Models\Admin\Aboutus;
 use App\Models\Admin\ProductmastModel;
 use App\Models\Admin\ServicemastModel;
 use App\Models\Admin\FooterContent;
-
+use App\Models\Contactus;
 
 
 /*
@@ -34,7 +34,9 @@ Route::get('/aboutus', function () {
 });
 Route::get('/contactus', function () {
 	$slideData = Home::all();
-    return view('contactus',compact('slideData'));
+	$contactData = Contactus::all();
+
+    return view('contactus',compact('slideData','contactData'));
 });
 Route::get('/career', function () {
 	$slideData = Home::all();
@@ -52,11 +54,15 @@ Route::get('/services', function () {
     return view('services',compact('slideData','servicesData'));
 });
 
+Route::get('/register', function () {
+	
+    return view('/');
+});
 //Auth::routes();
 
 
 Auth::routes();
-Route::get('/admin', 'HomeController@index')->name('admin-dashboard');
+Route::get('/admin', 'HomeController@index')->name('admin');
 
 // Route::get('/home', 'HomeController@index')->name('home');
 
@@ -84,4 +90,7 @@ Route::resource('/contact','ContactController');
 
 // Route::get('/home','CommanHomeontroller');
 
+Route::get('/admin/career/{id}', 'AdminSection\CareerController@downloadDocs')->name('career.download');
 
+// Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+Route::get('/admin/logout', 'HomeController@logout')->name('logout');

@@ -24,7 +24,7 @@
 				<div class="card shadow-xs">
 					<div class="card-body">
 						<div class="row form-group">								
-							<form method="post" action="{{route('our-services.store')}}" enctype='multipart/form-data'>
+							<form method="post" action="{{route('career.store')}}" enctype='multipart/form-data'>
 							@csrf
 							    <div class="row">
 							    <div class="col form-group">
@@ -37,7 +37,7 @@
                                 	@enderror
 							    </div>
 							    <div class="col form-group">
-							    	<label for="">Logo</label>
+							    	<label for="">Document</label>
 							    	<input style="width: 311px;" type="file" name="logo" id="image" class="image"><br>
 							    	<div class="image" style="height: 30px;"></div>
 

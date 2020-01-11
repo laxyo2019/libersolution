@@ -17,7 +17,7 @@ class AboutUsController extends Controller
     public function index()
     {
         $data = Aboutus::all();
-        return view('admin.about-us.index',compact('data'));
+            return view('admin.about-us.index',compact('data'));
     }
 
     /**
@@ -39,21 +39,16 @@ class AboutUsController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->validate(['title'=>'required','content'=>'required','logo'=>'required']);
-        // dd($data);
-
+            $data = $request->validate(['title'=>'required','content'=>'required','logo'=>'required']);
             $filename = $request->file('logo')->getClientOriginalName();
-                $extension = $request->file('logo')->getClientOriginalExtension();
-                $fileNameToStore = $filename;              
-                $path = $request->file('logo')->storeAs('public/images',$fileNameToStore);
-                $data['logo'] = $fileNameToStore;
+            $extension = $request->file('logo')->getClientOriginalExtension();
+            $fileNameToStore = $filename;              
+            $path = $request->file('logo')->storeAs('public/images',$fileNameToStore);
+            $data['logo'] = $fileNameToStore;
 
             $data1 = Aboutus::create($data);
             if ($data1) {
-            return redirect()->back()->with('message', 'Aboutus add successfully');
-            }else{
-            return redirect()->back()->with('messageError', 'Aboutus Not added');
-
+                return redirect()->back()->with('message', 'Aboutus add successfully');
             }
     }
 
@@ -77,7 +72,7 @@ class AboutUsController extends Controller
     public function edit($id)
     {
         $data = Aboutus::find($id);
-        return view('admin.about-us.edit',compact('data'));
+            return view('admin.about-us.edit',compact('data'));
     }
 
     /**
@@ -90,8 +85,8 @@ class AboutUsController extends Controller
     public function update(Request $request, $id)
     {
         
-            $data = $request->validate(['title'=>'required','content'=>'required','logo'=>'required']);
-            // dd($data);
+            $data = $request->validate(['title'=>'required','content'=>'required']);
+            
             if($request->hasFile('logo')){
             $filename = $request->file('logo')->getClientOriginalName();
                 $extension = $request->file('logo')->getClientOriginalExtension();
@@ -105,9 +100,6 @@ class AboutUsController extends Controller
             $data1 = Aboutus::where('id', $id)->update($data); 
             if ($data1) {
                 return redirect()->back()->with('message', 'Aboutus updated successfully');
-            }else{
-                return redirect()->back()->with('messageError', 'Aboutus Not updated');
-
             }
     }
 

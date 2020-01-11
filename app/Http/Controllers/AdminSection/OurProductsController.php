@@ -18,9 +18,7 @@ class OurProductsController extends Controller
     public function index()
     {
         $data = ProductmastModel::get();
-        // dd($data);
-
-        return view('admin.our-products.index',compact('data'));
+            return view('admin.our-products.index',compact('data'));
     }
 
     /**
@@ -43,20 +41,14 @@ class OurProductsController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate(['product_title'=>'required','product_url'=>'required','content'=>'required','file'=>'required']);
-        // dd($data);
-
-            $filename = $request->file('file')->getClientOriginalName();
-                $extension = $request->file('file')->getClientOriginalExtension();
-                $fileNameToStore = $filename;              
-                $path = $request->file('file')->storeAs('public/images',$fileNameToStore);
-                $data['file'] = $fileNameToStore;
-
-            $data1 = ProductmastModel::create($data);
+        $filename = $request->file('file')->getClientOriginalName();
+        $extension = $request->file('file')->getClientOriginalExtension();
+        $fileNameToStore = $filename;              
+        $path = $request->file('file')->storeAs('public/images',$fileNameToStore);
+        $data['file'] = $fileNameToStore;
+        $data1 = ProductmastModel::create($data);
             if ($data1) {
-            return redirect()->back()->with('message', 'Product add successfully');
-            }else{
-            return redirect()->back()->with('messageError', 'Product Not added');
-
+                return redirect()->back()->with('message', 'Product add successfully');
             }
     }
 
@@ -93,24 +85,22 @@ class OurProductsController extends Controller
     public function update(Request $request, $id)
     {
         
-            $data = $request->validate(['product_title'=>'required','product_url'=>'required','content'=>'required','file'=>'required']);
+        $data = $request->validate(['product_title'=>'required','product_url'=>'required','content'=>'required']);
             if($request->hasFile('file')){
-            $filename = $request->file('file')->getClientOriginalName();
+                $filename = $request->file('file')->getClientOriginalName();
                 $extension = $request->file('file')->getClientOriginalExtension();
                 $fileNameToStore = $filename;              
                 $path = $request->file('file')->storeAs('public/images',$fileNameToStore);
                 $data['file'] = $fileNameToStore;          
             }else{
                 $file  = ProductmastModel::find($id);
-                $data['logo'] = $file->logo;            
+                $data['file'] = $file->file;            
             }
             $data1 = ProductmastModel::where('id', $id)->update($data); 
             if ($data1) {
-                return redirect()->back()->with('message', 'Product  updated successfully');
-            }else{
-                return redirect()->back()->with('messageError', 'Product Not updated');
-
+                return redirect()->back()->with('message', 'Product updated successfully');
             }
+                
     }
 
     /**
@@ -121,10 +111,9 @@ class OurProductsController extends Controller
      */
     public function destroy($id)
     {
-        $delete = ProductmastModel::destroy($id);
-        if($delete){
-           return redirect()->back()->with('message', 'Record deleted successfully');
-            
-        }
+         $delete = ProductmastModel::destroy($id);
+            if($delete){
+                return redirect()->back()->with('message', 'Record deleted successfully');
+            }
     }
 }

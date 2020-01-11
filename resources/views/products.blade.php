@@ -52,27 +52,28 @@
         </div>
       </div>
     </div> 
-<div class="container"> 
-  <div class="barrister-callouts-wrapper">
-    <div class="container">
-      <div class="title"> <span class="title-border-img"><img src="images/h1-line-img1.png" alt=""></span>
-        <h2>Products</h2>
-      </div>
-      <div class="row">
-    <?php $count = 1; ?>
-      @foreach($productsData as $products)
-        <div class="col-md-4">
-          <div class="callouts callout-img1" >
-            <h3>{{$products->product_title}}</h3>
-            <span class="callouts-line"><img src="{{asset('storage/images/'.$products->file)}}" alt="" width="50%" height="50%"></span>
-            <div ><p>{{$products->content}}</p></div>
-            <a class="btn-one" href="{{$products->product_url}}" target="_blank">View Case</a> </div>
+    <div class="mt-2">
+      <div class="container"> 
+      <div class="barrister-callouts-wrapper">
+        <div class="container">
+          <div class="title"> <span class="title-border-img"><img src="images/h1-line-img1.png" alt=""></span>
+            <h2>Products</h2>
+          </div>
+          <div class="row">
+        <?php $count = 1; ?>
+          @foreach($productsData as $products)
+            <div class="col-md-4 ">
+              <div class="callouts callout-img1" style="overflow: scroll;max-height: 300px;min-height: 300px; margin-bottom: 20px;" >
+                <h3>{{$products->product_title}}</h3>
+                <span class="callouts-line"><img src="{{asset('storage/images/'.$products->file)}}" alt="" width="50%" height="50%"></span>
+                <div class=""><p>{{$products->content}}</p></div>
+                <a class="btn-one" href="{{$products->product_url}}" target="_blank">View Case</a> </div>
+            </div>
+           @endforeach
+          </div>
         </div>
-       @endforeach
       </div>
     </div>
-  </div>
-</div>
 </section>
-
+    </div>
 @endsection

@@ -8,9 +8,9 @@
 			<div class="div">
 				<h1><i class="fa fa-laptop"></i> Career</h1>
 			</div>
-			{{-- <ul class="app-breadcrumb breadcrumb">
+		{{-- 	<ul class="app-breadcrumb breadcrumb">
 				<span class="ml-2">
-					<a href="{{route('our-services.create')}}" class="btn btn-outline-success">
+					<a href="{{route('career.create')}}" class="btn btn-outline-success">
 					<span class="fa fa-plus"></span> Add New</a>
 				</span>
 			</ul> --}}
@@ -46,7 +46,8 @@
 								<td>{{$getDatas->name}}</td>
 								<td>{{$getDatas->phone}}</td>
 								<td>{{$getDatas->email}}</td>
-								<td>{{$getDatas->file}}</td>
+								{{-- <td>{{$getDatas->file}}</td> --}}
+								<td><a href="{{route('career.download',$getDatas->id)}}" ><i class="fa fa-arrow-down"></i> Download</a></td>
 								<td>{{$getDatas->message}}</td>
 								<td >
 									<span class="ml-2">

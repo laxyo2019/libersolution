@@ -40,7 +40,14 @@
         {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> --}}
     <!-- Styles -->
     {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
+
 </head>
+<style type="text/css">
+    .row.justify-content-center {
+    margin-top: 100px;
+    margin-bottom: 30px;
+}
+</style>
 <body>
     <div id="app">        
         <section class="menu cid-ruNsw1yRec" once="menu" id="menu1-0">   
@@ -64,20 +71,24 @@
                         <a class="nav-link link text-white display-4" href="{{ '/' }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link link text-white display-4" href="{{ '/aboutus' }}">About Us</a>
+                        <a class="nav-link link text-white display-4" href="{{ '/aboutus' }}">About us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link link text-white display-4" href="{{ '/contactus' }}">Contact us</a>
                     </li>
                      <li class="nav-item">
-                        <a class="nav-link link text-white display-4" href="{{ '/products' }}">Our Products</a>
+                        <a class="nav-link link text-white display-4" href="{{ '/products' }}">Products</a>
                     </li>
 
                     <li class="nav-item">
                         <a class="nav-link link text-white display-4" href="{{ '/services' }}"> Services</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link link text-white display-4" href="{{ '/contactus' }}">Contact</a>
-                    </li>
+                    
                     <li class="nav-item">
                         <a class="nav-link link text-white display-4" href="{{ '/career' }}">Career</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link link text-white display-4" href="{{ '/login' }}">Login</a>
                     </li>
                   </ul>                  
                 </div>
@@ -119,11 +130,26 @@
                               </div>
                               <div class="col-sm-12 col-md-3">
                                 <div class="form-section">
+                                   <div class="container">
+                                    @if(session()->has('message'))
+                                      <div class="alert alert-success">
+                                          {{ session()->get('message') }}
+                                      </div>
+                                    @endif
+                                  </div>
                                     <h2><img src="images/contact-icon.png" alt="">QUICK CONTACT</h2>
                                     <form action="{{route('contact.store')}}" method="post">
                                       @csrf
                                       <div class="form-group">
-                                        <input name="phone" placeholder="Phone" type="number" style="background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;">
+                                      <input name="name" class="form-control required" placeholder="Full Name" type="text">
+                                        @error('name')
+                                          <span class="text-danger" role="alert">
+                                              <strong>{{ $message }}</strong>
+                                          </span>
+                                        @enderror
+                                      </div>
+                                      <div class="form-group">
+                                        <input name="phone" placeholder="Phone Number" type="number" style="background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;">
                                         @error('phone')
                                           <span class="text-danger" role="alert">
                                               <strong>{{ $message }}</strong>
@@ -147,7 +173,7 @@
                                           </span>
                                         @enderror
                                       </div>
-                                      <button type="submit" class="btn">CHECK PRACTICE</button>
+                                      <button type="submit" class="btn">Send Message</button>
                                     </form>
                                 </div>
                               </div>

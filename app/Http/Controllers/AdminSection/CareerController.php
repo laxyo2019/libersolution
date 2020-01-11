@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Home;
 use App\Models\CareerModel;
+use DB;
+use Illuminate\Support\Facades\Storage;
+
 class CareerController extends Controller
 {
     /**
@@ -28,6 +31,7 @@ class CareerController extends Controller
      */
     public function create()
     {
+        return view('admin.career.create');
         
     }
 
@@ -39,20 +43,20 @@ class CareerController extends Controller
      */
     public function store(Request $request)
     {
-       
         $data = $request->validate(['name'=>'required', 'phone'=>'required','email'=>'required','Message'=>'required']);
-        $filename = $request->file('file')->getClientOriginalName();
-        $extension = $request->file('file')->getClientOriginalExtension();
-        $fileNameToStore = $filename;              
-        $path = $request->file('file')->storeAs('public/images',$fileNameToStore);
-        $data['file'] = $fileNameToStore;
-        $data1 = CareerModel::create($data);
-            if ($data1) {
-                return redirect()->back()->with('message', 'Career send successfully');
-            }else{
-                return redirect()->back()->with('messageError', 'Career Not added');
 
-            }
+        $filename        = $request->file('file')->getClientOriginalName();
+        $extension       = $request->file('file')->getClientOriginalExtension();
+        $fileNameToStore = $filename;          
+        $path            = $request->file('file')->storeAs('public/career-docs',$fileNameToStore);
+        $data['file']    = $fileNameToStore;
+        $data1           = CareerModel::create($data);
+        if ($data1) {
+            return redirect()->back()->with('message', 'Career send successfully');
+        }else{
+            return redirect()->back()->with('messageError', 'Career Not added');
+
+        }
     }
 
     /**
@@ -97,15 +101,23 @@ class CareerController extends Controller
      */
     public function destroy($id)
     {
-         $delete = CareerModel::destroy($id);
-            if($delete){
+        $delete = CareerModel::destroy($id);
+         if($delete){
                return redirect()->back()->with('message', 'Record deleted successfully');
                 
-            }
+         }
     }
 
     public function careerAdmin(){
        $careerData = CareerModel::all();
         return view('admin.career.index',compact('careerData'));
     }
+
+    public function downloadDocs($id){
+
+        $docs = CareerModel::first()
+                      ->where('id', $id)
+                      ->first();
+        return Storage::download('public/career-docs/'.$docs->file);
+  }
 }
