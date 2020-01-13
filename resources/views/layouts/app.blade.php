@@ -86,7 +86,7 @@
                 </button>
                 <div class="menu-logo">
                     <div class="navbar-brand">
-                        <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-5" href="{{ '/' }}"><img src="images/law-icon.png" alt="" data-popupalt-original-title="null" title="" width="32px"> <span>AAVAS</span></a></span>
+                        <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-5" href="{{ '/' }}"><img src="images/law-icon.png" alt="" data-popupalt-original-title="null" title="" width="32px"> <span>LIBER</span></a></span>
                     </div>
                 </div>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -143,7 +143,7 @@
                         {{-- <img src="images/law-icon.png" alt="" data-popupalt-original-title="null" title="" width="50px"> --}}
                         <span class="navbar-caption-wrap ml-3">
                             <a class="navbar-caption text-white display-5" style="font-size:40px" href="{{ '/' }}"> <h3>Laxyo Group Companies </h3></a></span>
-                        <div style="color: white;">
+                          <div class="mt-3">
                             <ul class="wfoot_content" >
                               <li><i class="fa fa-angle-double-right"></i><a target="_blank" href="http://www.laxyofinance.com/"> Laxyo Finance Limited</a></li>
                               <li><i class="fa fa-angle-double-right"></i><a target="_blank" href="http://www.yolaxinfra.com/"> Yolax Infranergy Pvt. Ltd.</a></li>
@@ -158,12 +158,13 @@
                        </div>
                         
                       </div>
-                        <div class="col-sm-3 col-md-3"> 
+                        <div class="col-sm-3 col-md-3 "> 
                         {{-- <img src="images/law-icon.png" alt="" data-popupalt-original-title="null" title="" width="50px"> --}}
                         <span class="navbar-caption-wrap ml-3">
                             <a class="navbar-caption text-white display-5" style="font-size:40px" href="{{ '/' }}"> <h3>Corp. Off. - Indore</h3> </a></span>
-                       <div class="wfoot_content">
-                          <ul class="contact-details-alt">
+                       <div class="wfoot_content mt-3">
+                          <div>
+                            <ul class="contact-details-alt">
                             <li><i class="fa fa-map-marker"></i>
                               <p>Laxyo House, Plot No.-2,<br>County Park,  MR-5, Mahalaxmi Nagar, Indore</p>
                             </li>
@@ -173,6 +174,7 @@
                               <p><span>E-mail</span>: info@laxyo.com</p>
                             </li><li>
                           </li></ul>
+                          </div>
                         </div>
                         
                       </div>
@@ -180,7 +182,7 @@
                         {{-- <img src="images/law-icon.png" alt="" data-popupalt-original-title="null" title="" width="50px"> --}}
                         <span class="navbar-caption-wrap ml-3">
                             <a class="navbar-caption text-white display-5" style="font-size:40px" href="{{ '/' }}"><h3> Regd. Off. - Ratlam</h3></a></span>
-                       <div class="wfoot_content">
+                       <div class="wfoot_content mt-3">
                            <ul class="contact-details-alt">
                               <li><i class="fa fa-map-marker"></i>
                                 <p>Laxyo Tower, 46/1 T.I.T. Road, Ratlam (MP) 457001 </p>
@@ -199,7 +201,7 @@
                         {{-- <img src="images/law-icon.png" alt="" data-popupalt-original-title="null" title="" width="50px"> --}}
                         <span class="navbar-caption-wrap ml-3">
                             <a class="navbar-caption text-white display-5" style="font-size:40px" href="{{ '/' }}"><h3>Reg. Off. - Chittorgarh</h3> </a></span>
-                        <div class="wfoot_content">
+                        <div class="wfoot_content mt-3">
                            <ul class="contact-details-alt">
                               <li><i class="fa fa-map-marker"></i>
                                 <p>CF-5, Madhav Nagar, Chanderia, Dist. Chittorgarh, (Raj.) 312021 </p>
@@ -217,29 +219,40 @@
              
                         </ul>
                       </div>
+                    </div>
+                  </div>
+                       <section class="footer_bottom">
+                        <div class="container mt-4">
+                          <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                              <p class="copyright">Copyright © 2020 LAXYO -  All rights reserved.</p>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                              <p class="desined-by pull-right">Designed And Developed by <a href="http://www.laxyo.com">Laxyo Group</a></p>
+                            </div>
+                          </div>
+                        </div>
+                  </section>
+                </div>
 
-                    </div>
-                  </div>
-                     <section class="footer_bottom">
-                <div class="container">
-                  <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                      <p class="copyright">Copyright © 2020 LAXYO -  All rights reserved.</p>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                      <p class="desined-by pull-right">Designed And Developed by <a href="http://www.laxyo.com">Laxyo Group</a></p>
-                    </div>
-                  </div>
-                </div>
               </section>
-                </div>
-              </section></div>
+
+            </div>
+
               <style type="text/css">
                 a, a:hover {color: #fff;}
-                .fa.fa-map-marker {color: #fff;}
-                .fa.fa-phone {color: #fff;}
-                .fa.fa-envelope {color: #fff;}
-                .fa.fa-fax {color: #fff;}
+                .fa.fa-map-marker {color: #fff;margin-inline: 10px;}
+                .fa.fa-phone {color: #fff;margin-inline: 10px;}
+                .fa.fa-envelope {color: #fff;margin-inline: 10px;}
+                .fa.fa-fax {color: #fff;margin-inline: 10px;}
+                li {display: flex; }
+                .footer-wrapper {
+                    padding: block;
+                    padding-block: inherit;
+                }
+
+                .inner-page-wrapper.aboutus-wrapper {
+                padding: 10px 0 114px;}
               </style>
                      
 </html>

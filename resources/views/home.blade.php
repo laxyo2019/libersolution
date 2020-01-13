@@ -43,11 +43,10 @@
       <div class="title"> <span class="title-border-img"><img src="images/h1-line-img1.png" alt=""></span>
         <h2>Products</h2>
       </div>
-      <div class="row">
-
+      <div class="row" style="margin-bottom: 30px;">
     <?php $count = 1; ?>
       @foreach($productAndServices as $productAndServices)
-        <div class="col-md-6">
+        <div class="col-md-6 mt" style="margin-bottom: 30px;">
           <div class="callouts callout-img{{$count++}}" style="max-height: 400px;min-height: 400px;">
            <a href="{{$productAndServices->product_url}}"  target="_blank"><h3>{{$productAndServices->product_title}}</h3>
             <span class="callouts-line">
@@ -80,7 +79,7 @@
         <?php $count = 1; ?>
           @foreach($platformAndFramework as $platformAndFrameworks)
             <div class="col-md-4 col-sm-6" >
-              <div class="service-item header" id="myHeader" style="max-height: 350px;min-height: 350px;">
+              <div class="service-item header" id="myHeader" style="max-width: 350px;min-height: 350px;">
                 <h3>{{ $platformAndFrameworks->heading}}</h3>
                 <div class="icon-box"> 
                   <a href="{{route('service',$platformAndFrameworks->id)}}" target="_blank"><img src="{{asset('storage/images/'.$platformAndFrameworks->logo)}}" alt="" width="50%" height="50%"></a>

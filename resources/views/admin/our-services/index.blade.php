@@ -26,7 +26,7 @@
 			<div class="col-md-12 col-xl-12">
 				<div class="card shadow-xs">
 					<div class="card-body table-responsive">
-						<table class="table table-striped table-hover">
+						<table class="table table-striped table-hover" id="ClientsTable">
 							<thead>
 								<tr class="text-center">
 									<th>S. No.</th>
@@ -37,7 +37,7 @@
 								</tr>
 							</thead>
 							<tbody>
-						<?php $count = 0; ?>
+							<?php $count = 0; ?>
 							@foreach($data as $getDatas)
 							<tr class="text-center">
 								<td>{{++$count}}</td>
@@ -66,4 +66,9 @@
 		</div>
 
 	</main>
+	 <script>
+      $(document).ready(function(){
+      $('#ClientsTable').DataTable(); 
+  });
+  </script>
 @endsection
