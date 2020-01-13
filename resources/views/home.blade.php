@@ -49,10 +49,15 @@
       @foreach($productAndServices as $productAndServices)
         <div class="col-md-6">
           <div class="callouts callout-img{{$count++}}" style="max-height: 400px;min-height: 400px;">
-           <a href="{{$productAndServices->product_url}}"  target="_blank"><h3>{{$productAndServices->product_title}}</h3></a>
-            <span class="callouts-line"><img src="{{asset('storage/images/'.$productAndServices->file)}}" alt="" width="100px;" height="100px;"></span>
-            <div class="product-content"><p>{{$productAndServices->content}}</p></div>
-            <div class="more"><a href="{{route('view',$productAndServices->id)}}" target="_blank" class="red" style="color: #9f280c;">Read More</a> 
+           <a href="{{$productAndServices->product_url}}"  target="_blank"><h3>{{$productAndServices->product_title}}</h3>
+            <span class="callouts-line">
+              <img src="{{asset('storage/images/'.$productAndServices->file)}}" alt="" width="100px;" height="100px;">
+            </span></a>
+            <div class="product-content">
+              <p>{{$productAndServices->content}}</p>
+            </div>
+            <div class="btn-one ">
+              <a href="{{route('view',$productAndServices->id)}}" target="_blank" class="">Read More</a> 
             </div>
           </div>
 
@@ -75,9 +80,11 @@
         <?php $count = 1; ?>
           @foreach($platformAndFramework as $platformAndFrameworks)
             <div class="col-md-4 col-sm-6" >
-              <div class="service-item header" id="myHeader" style="max-height: 400px;min-height: 400px;">
+              <div class="service-item header" id="myHeader" style="max-height: 350px;min-height: 350px;">
                 <h3>{{ $platformAndFrameworks->heading}}</h3>
-                <div class="icon-box"> <a href="{{route('service',$platformAndFrameworks->id)}}" target="_blank"><img src="{{asset('storage/images/'.$platformAndFrameworks->logo)}}" alt="" width="50%" height="50%"></a></div>
+                <div class="icon-box"> 
+                  <a href="{{route('service',$platformAndFrameworks->id)}}" target="_blank"><img src="{{asset('storage/images/'.$platformAndFrameworks->logo)}}" alt="" width="50%" height="50%"></a>
+                </div>
                 <div class="teaser more service-content" >
                 {{ $platformAndFrameworks->content}}
                 </div>
