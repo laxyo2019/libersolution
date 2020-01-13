@@ -47,14 +47,14 @@ class HomeController extends Controller
             return redirect('/');
     }
 
-    // public function home1()
-    // {
-    //     $slideData = Home::all();
-    //     $productAndServices = ProductAndServicesModel::all();
-    //     $platformAndFramework = PlatformAndFrameworkModel::all();
-    //     $footer = FooterContent::all();
-    //         return view('home',compact('slideData','productAndServices','platformAndFramework','footer'));
-    // }
+    public function home()
+    {
+        $slideData = Home::all();
+        $productAndServices = ProductAndServicesModel::all();
+        $platformAndFramework = PlatformAndFrameworkModel::all();
+        $footer = FooterContent::all();
+            return view('home',compact('slideData','productAndServices','platformAndFramework','footer'));
+    }
     public function aboutus()
     {
         $slideData = Home::all();
@@ -76,12 +76,31 @@ class HomeController extends Controller
     {
         $slideData = Home::all();
         $productsData = ProductmastModel::all();
+        // dd($productsData)
             return view('products',compact('slideData','productsData'));
     }
     public function services()
     {
+        // dd('');
         $slideData = Home::all();
         $servicesData = ServicemastModel::all();
             return view('services',compact('slideData','servicesData'));
+    }
+    public function viewProduct($id)
+    {    
+
+        $productData = ProductmastModel::where('id',$id)->first();
+        // dd($productData);
+
+        $slideData = Home::all();
+            return view('view-product-details',compact('productData','slideData'));
+    }
+     public function serviceProduct($id)
+    {    
+        $serviceData = ServicemastModel::where('id',$id)->first();
+        // dd($serviceData);
+        $slideData = Home::all();
+
+            return view('view-services-details',compact('serviceData','slideData'));
     }
 }

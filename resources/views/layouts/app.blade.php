@@ -48,6 +48,30 @@
     margin-bottom: 30px;
 }
 </style>
+<script>
+  $(function(){
+    $(".product-content").each(function () {
+        len=$(this).text().length;
+        str= $(this).text().substr(0,150);
+        lastIndexOf = str.lastIndexOf(" "); 
+        if(len>150) {
+            $(this).text(str.substr(0, lastIndexOf) + '...');
+            var txt2 = $("").text(" "); 
+        }
+    });
+});
+  $(function(){
+    $(".service-content").each(function () {
+        len=$(this).text().length;
+        str= $(this).text().substr(0,300);
+        lastIndexOf = str.lastIndexOf(" "); 
+        if(len>300) {
+            $(this).text(str.substr(0, lastIndexOf) + '...');
+            var txt2 = $("").text(" "); 
+        }
+    });
+});
+</script>
 <body>
     <div id="app">        
         <section class="menu cid-ruNsw1yRec" once="menu" id="menu1-0">   
@@ -70,9 +94,7 @@
                     <li class="nav-item">
                         <a class="nav-link link text-white display-4" href="{{ '/' }}">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link link text-white display-4" href="{{ '/aboutus' }}">About us</a>
-                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link link text-white display-4" href="{{ '/contactus' }}">Contact us</a>
                     </li>
@@ -87,9 +109,11 @@
                     <li class="nav-item">
                         <a class="nav-link link text-white display-4" href="{{ '/career' }}">Career</a>
                     </li>
-                        @guest
-
                     <li class="nav-item">
+                        <a class="nav-link link text-white display-4" href="{{ '/aboutus' }}">About us</a>
+                    </li>
+                {{-- @guest --}}
+                 {{--    <li class="nav-item">
                         <a class="nav-link link text-white display-4" href="{{ '/login' }}">Login</a>
                     </li>
                     @else
@@ -102,8 +126,8 @@
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
                             </form>
-                    </li>
-                    @endguest
+                    </li> --}}
+                {{-- @endguest --}}
                   </ul>                  
                 </div>
             </nav>
@@ -115,86 +139,107 @@
             <div class="footer-wrapper">
                   <div class="container">
                     <div class="row">
-                      <div class="col-sm-6 col-md-4"> 
-                        <img src="images/law-icon.png" alt="" data-popupalt-original-title="null" title="" width="50px">
+                      <div class="col-sm-3 col-md-3" > 
+                        {{-- <img src="images/law-icon.png" alt="" data-popupalt-original-title="null" title="" width="50px"> --}}
                         <span class="navbar-caption-wrap ml-3">
-                            <a class="navbar-caption text-white display-5" style="font-size:40px" href="{{ '/' }}">AAVAS</a></span>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                            <a class="navbar-caption text-white display-5" style="font-size:40px" href="{{ '/' }}"> <h3>Laxyo Group Companies </h3></a></span>
+                        <div style="color: white;">
+                            <ul class="wfoot_content" >
+                              <li><i class="fa fa-angle-double-right"></i><a target="_blank" href="http://www.laxyofinance.com/"> Laxyo Finance Limited</a></li>
+                              <li><i class="fa fa-angle-double-right"></i><a target="_blank" href="http://www.yolaxinfra.com/"> Yolax Infranergy Pvt. Ltd.</a></li>
+                              <li><i class="fa fa-angle-double-right"></i><a target="_blank" href="http://www.laxyosolutionsoft.com/"> Liber Solutions Pvt. Ltd.</a></li>
+                               <li><i class="fa fa-angle-double-right"></i><a target="_blank" href="http://lakshyainternationalschool.org/"> Lakshya International School</a></li>
+                              <li><i class="fa fa-angle-double-right"></i><a target="_blank" href="http://www.apnagps.com/"> Apna GPS</a></li>
+                              <li><i class="fa fa-angle-double-right"></i><a target="_blank" href="http://www.discountbrandfactory.com/"> Discount Brand Factory</a></li>
+                              <li><i class="fa fa-angle-double-right"></i><a target="_blank" href="http://www.advocatemail.com/"> Adlaw</a></li>
+                              <li><i class="fa fa-angle-double-right"></i><a target="_blank" href="http://www.advocatemail.com/"> Courts Judgments</a></li>
+                              <li><i class="fa fa-angle-double-right"></i><a target="_blank" href="http://www.maagayatrihospital.org/"> Maa Gayatri Hospital</a></li>
+                            </ul>
+                       </div>
+                        
+                      </div>
+                        <div class="col-sm-3 col-md-3"> 
+                        {{-- <img src="images/law-icon.png" alt="" data-popupalt-original-title="null" title="" width="50px"> --}}
+                        <span class="navbar-caption-wrap ml-3">
+                            <a class="navbar-caption text-white display-5" style="font-size:40px" href="{{ '/' }}"> <h3>Corp. Off. - Indore</h3> </a></span>
+                       <div class="wfoot_content">
+                          <ul class="contact-details-alt">
+                            <li><i class="fa fa-map-marker"></i>
+                              <p>Laxyo House, Plot No.-2,<br>County Park,  MR-5, Mahalaxmi Nagar, Indore</p>
+                            </li>
+                            <li><i class="fa fa-phone"></i> <p><span>Phone</span>: +91-731-4996625</p> </li>
+                            <li><i class="fa fa-phone"></i> <p><span>Phone</span>: +91-731-4043798</p> </li>
+                            <li><i class="fa fa-envelope"></i>
+                              <p><span>E-mail</span>: info@laxyo.com</p>
+                            </li><li>
+                          </li></ul>
+                        </div>
+                        
+                      </div>
+                        <div class="col-sm-3 col-md-3"> 
+                        {{-- <img src="images/law-icon.png" alt="" data-popupalt-original-title="null" title="" width="50px"> --}}
+                        <span class="navbar-caption-wrap ml-3">
+                            <a class="navbar-caption text-white display-5" style="font-size:40px" href="{{ '/' }}"><h3> Regd. Off. - Ratlam</h3></a></span>
+                       <div class="wfoot_content">
+                           <ul class="contact-details-alt">
+                              <li><i class="fa fa-map-marker"></i>
+                                <p>Laxyo Tower, 46/1 T.I.T. Road, Ratlam (MP) 457001 </p>
+                              </li>
+                              <li><i class="fa fa-phone"></i>
+                                <p><span>Phone</span>: +91-7412-232432</p>
+                              </li>
+                              <li><i class="fa fa-fax"></i>
+                                <p><span>Fax</span>: +91-7412-232432</p>
+                              </li>
+                            </ul>
+                          </div>
+                        
+                      </div>
+                        <div class="col-sm-3 col-md-3"> 
+                        {{-- <img src="images/law-icon.png" alt="" data-popupalt-original-title="null" title="" width="50px"> --}}
+                        <span class="navbar-caption-wrap ml-3">
+                            <a class="navbar-caption text-white display-5" style="font-size:40px" href="{{ '/' }}"><h3>Reg. Off. - Chittorgarh</h3> </a></span>
+                        <div class="wfoot_content">
+                           <ul class="contact-details-alt">
+                              <li><i class="fa fa-map-marker"></i>
+                                <p>CF-5, Madhav Nagar, Chanderia, Dist. Chittorgarh, (Raj.) 312021 </p>
+                              </li>
+                              <li><i class="fa fa-phone"></i>
+                                <p><span>Phone</span>: +91-1474-256710</p>
+                              </li>
+                              
+                            </ul>
+                          </div>
                         <ul class="social-icons">
-                          <li><a href="javascript:void(0)"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                          <li><a href="javascript:void(0)"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                          <li><a href="javascript:void(0)"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                          <li><a href="javascript:void(0)"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                          <li><a href="javascript:void(0)"> <i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+                          <li><a class="fb" href="https://www.facebook.com/laxyoGroup/" data-placement="top" data-toggle="tooltip" title="Facbook" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                          <li><a class="twtr" href="https://twitter.com/LaxyoGroup" data-placement="top" data-toggle="tooltip" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                          <li><a class="twtr" href="https://in.linkedin.com/in/laxyo-group-21242a118" data-placement="top" data-toggle="tooltip" title="Linkedin" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+             
                         </ul>
                       </div>
-                      <div class="col-sm-6 col-md-5">
-                        <div class="bullet-section">
-                          <h2><img src="images/link-icon.png" alt="">ADDITIONAL RESEARCH LINKS</h2>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
-                          <ul>
-                            <li><a href="javascript:void(0)">FREQUENTLY ASKED QUESTIONS</a></li>
-                            <li><a href="javascript:void(0)">LEGAL ADVICE</a></li>
-                            <li><a href="javascript:void(0)">HOW TO WRITE STATEMENTS</a></li>
-                            <li><a href="javascript:void(0)">PROMOTING CONCIOUSNESS</a></li>
-                            <li><a href="javascript:void(0)">CULTURAL SCHEMAS</a></li>
-                            <li><a href="javascript:void(0)">PERFORMING IN COURT</a></li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div class="col-sm-12 col-md-3">
-                        <div class="form-section">
-                           <div class="container">
-                            @if(session()->has('message'))
-                              <div class="alert alert-success">
-                                  {{ session()->get('message') }}
-                              </div>
-                            @endif
-                          </div>
-                            <h2><img src="images/contact-icon.png" alt="">QUICK CONTACT</h2>
-                            <form action="{{route('contact.store')}}" method="post">
-                              @csrf
-                              <div class="form-group">
-                              <input name="name" class="form-control required" placeholder="Full Name" type="text">
-                                @error('name')
-                                  <span class="text-danger" role="alert">
-                                      <strong>{{ $message }}</strong>
-                                  </span>
-                                @enderror
-                              </div>
-                              <div class="form-group">
-                                <input name="phone" placeholder="Phone Number" type="number" style="background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;">
-                                @error('phone')
-                                  <span class="text-danger" role="alert">
-                                      <strong>{{ $message }}</strong>
-                                  </span>
-                                @enderror
-                              </div>
-                              <div class="form-group">
-                                <input name="email" placeholder="Your E-mail Address*" type="email">
-                                @error('email')
-                                  <span class="text-danger" role="alert">
-                                      <strong>{{ $message }}</strong>
-                                  </span>
-                                @enderror
-                              </div>  
-                              <div class="form-group">
-                                {{-- <input name="message" placeholder="Describe your case briefly." type="text"> --}}
-                                <textarea name="message" placeholder="Describe your case briefly." style="width: 100%"></textarea>
-                                @error('message')
-                                  <span class="text-danger" role="alert">
-                                      <strong>{{ $message }}</strong>
-                                  </span>
-                                @enderror
-                              </div>
-                              <button type="submit" class="btn">Send Message</button>
-                            </form>
-                        </div>
-                      </div>
+
+                    </div>
+                  </div>
+                     <section class="footer_bottom">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                      <p class="copyright">Copyright © 2020 LAXYO -  All rights reserved.</p>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                      <p class="desined-by pull-right">Designed And Developed by <a href="http://www.laxyo.com">Laxyo Group</a></p>
                     </div>
                   </div>
                 </div>
-        </section>  
-    </div>
-</body>
+              </section>
+                </div>
+              </section></div>
+              <style type="text/css">
+                a, a:hover {color: #fff;}
+                .fa.fa-map-marker {color: #fff;}
+                .fa.fa-phone {color: #fff;}
+                .fa.fa-envelope {color: #fff;}
+                .fa.fa-fax {color: #fff;}
+              </style>
+                     
 </html>

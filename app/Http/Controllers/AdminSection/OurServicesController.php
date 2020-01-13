@@ -38,7 +38,7 @@ class OurServicesController extends Controller
      */
     public function store(Request $request)
     {
-            $data = $request->validate(['heading'=>'required','content'=>'required','logo'=>'required']);
+            $data = $request->validate(['heading'=>'required','content'=>'required']);
 
             $filename = $request->file('logo')->getClientOriginalName();
                 $extension = $request->file('logo')->getClientOriginalExtension();

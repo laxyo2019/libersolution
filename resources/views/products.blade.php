@@ -60,14 +60,15 @@
             <h2>Products</h2>
           </div>
           <div class="row">
-        <?php $count = 1; ?>
+          <?php $count = 1; ?>
           @foreach($productsData as $products)
-            <div class="col-md-4 ">
-              <div class="callouts callout-img1" style="overflow: scroll;max-height: 300px;min-height: 300px; margin-bottom: 20px;" >
+            <div class="col-md-6">
+              <div class="callouts callout-img1" style="max-height: 500px;min-height: 500px; margin-bottom: 20px;" >
                 <h3>{{$products->product_title}}</h3>
-                <span class="callouts-line"><img src="{{asset('storage/images/'.$products->file)}}" alt="" width="50%" height="50%"></span>
-                <div class=""><p>{{$products->content}}</p></div>
-                <a class="btn-one" href="{{$products->product_url}}" target="_blank">View Case</a> </div>
+                <span class="callouts-line"><img src="{{asset('storage/images/'.$products->file)}}" alt="" width="50px" height="50px"></span>
+                <div class="product-content"><p>{{$products->content}}</p></div>
+                {{-- <a  href="" target="_blank"></a> --}}
+                <a class="btn-one" href="{{route('view',$products->id)}}" target="_blank">Read More</a> </div>
             </div>
            @endforeach
           </div>
@@ -75,5 +76,29 @@
       </div>
     </div>
 </section>
-    </div>
+</div>
+<script>
+  $(function(){
+    $(".product-content").each(function () {
+        len=$(this).text().length;
+        str= $(this).text().substr(0,150);
+        lastIndexOf = str.lastIndexOf(" "); 
+        if(len>150) {
+            $(this).text(str.substr(0, lastIndexOf) + '...');
+            var txt2 = $("").text(" "); 
+        }
+    });
+});
+  $(function(){
+    $(".service-content").each(function () {
+        len=$(this).text().length;
+        str= $(this).text().substr(0,300);
+        lastIndexOf = str.lastIndexOf(" "); 
+        if(len>300) {
+            $(this).text(str.substr(0, lastIndexOf) + '...');
+            var txt2 = $("").text(" "); 
+        }
+    });
+});
+</script>
 @endsection

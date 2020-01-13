@@ -62,18 +62,18 @@
   <div class="row" >
   <?php $count = 1; ?>
     @foreach($servicesData as $servicesDatas)
-      <div class="col-md-4 col-sm-6" >
-        <div class="service-item" style="overflow: scroll;max-height: 400px;min-height: 400px;">
-          <h3>{{ $servicesDatas->heading}}</h3>
-          <div class="more">
-            <p>{{ $servicesDatas->content}}</p>
-          </div>
-          {{-- <a href="javascript:void(0)">Read More</a> --}}
-          {{-- <a href="javascript:void(0)" class="show_hide" data-content="toggle-text">Read More</a> --}}
-          {{-- <div class="icon-box"><img src="images/service-item-icon1.png" alt=""></div> --}}
-          <div {{-- class="icon-box" --}}><a href="#"><img src="{{asset('storage/images/'.$servicesDatas->logo)}}" alt="" width="50%" height="50%"></a></div>
-        </div>
-      </div>
+    
+       <div class="col-md-4 col-sm-6" >
+              <div class="service-item header" id="myHeader" style="max-height: 400px;min-height: 400px;">
+                <h3>{{ $servicesDatas->heading}}</h3>
+                <div class="icon-box"> <a href="{{route('service',$servicesDatas->id)}}" target="_blank"><img src="{{asset('storage/images/'.$servicesDatas->logo)}}" alt="" width="50%" height="50%"></a></div>
+                <div class="teaser more service-content" >
+                 {{ $servicesDatas->content}}
+                </div>
+                <a href="{{route('service',$servicesDatas->id)}}" target="_blank">Read More</a>
+                {{-- <div class="icon-box"><img src="images/service-item-icon1.png" alt=""></div> --}}
+              </div>
+            </div>
     @endforeach
   </div>
 </div>   

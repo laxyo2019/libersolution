@@ -54,7 +54,7 @@
 <div class="inner-page-wrapper aboutus-wrapper">
   <div class="container">
     <div class="title"> <span class="title-border-img"><img src="images/h1-line-img1.png" alt=""></span>
-      <h2>Successful Work</h2>
+      <h2>About Us</h2>
     </div>
   <?php $count = 1; ?>
       @foreach($aboutData as $data)
@@ -69,7 +69,7 @@
       </div>
       <div class="col-sm-7">
         <div class="about-text">
-          <h3>{{$data->title}}</h3>
+          {{-- <h3>{{$data->title}}</h3> --}}
           <p>{{$data->content}}</p>
           {{-- <ul>
             <li>Put clients at the heart</li>
@@ -88,7 +88,7 @@
      <div class="row m-top-50">
       <div class="col-sm-7">
         <div class="about-text">
-          <h3>{{$data->title}}</h3>
+          {{-- <h3>{{$data->title}}</h3> --}}
           <p>{{$data->content}}</p>
           {{-- <ul>
             <li>Put clients at the heart</li>
@@ -111,5 +111,7 @@
    
   </div>
 </div>
-
+<style type="text/css">
+  
+</style>
 @endsection

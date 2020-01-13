@@ -133,4 +133,12 @@ class FooterController extends Controller
             
         }
     }
+    public function terms(){
+        // dd('dsf');
+        return view('term-of-service');
+    }
+    public function services(){
+        return view('privacy-policy');
+        
+    }
 }

@@ -73,7 +73,7 @@
       </div>
     </div>
     <div class="col-sm-5">
-      <div class="contact-img"> <img src="images/contact-img.png" alt=""> </div>
+      <div class="contact-img"> <img src="images/ca3.png" alt="" height="450px;"> </div>
     </div>
   </div>
 </div>

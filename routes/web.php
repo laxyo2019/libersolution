@@ -15,21 +15,28 @@ use App\Models\Admin\FooterContent;
 |
 */
 
-Route::get('/', function () {
-	$slideData = Home::all();
-	$productAndServices = ProductAndServicesModel::all();
-	$platformAndFramework = PlatformAndFrameworkModel::all();
-	$footer = FooterContent::all();
-    return view('home',compact('slideData','productAndServices','platformAndFramework','footer'));
-});
+// Route::get('/', function () {
+// 	$slideData = Home::all();
+// 	$productAndServices = ProductAndServicesModel::all();
+// 	$platformAndFramework = PlatformAndFrameworkModel::all();
+// 	$footer = FooterContent::all();
+//     return view('home',compact('slideData','productAndServices','platformAndFramework','footer'));
+// });
 
-// Route::get('/', 'HomeController@home');
+Route::get('/', 'HomeController@home');
+Route::get('/view/{id}', 'HomeController@viewProduct')->name('view');
+Route::get('/service/{id}', 'HomeController@serviceProduct')->name('service');
+
+
 Route::get('/aboutus', 'HomeController@aboutus');
 Route::get('/contactus', 'HomeController@contactus');
 Route::get('/career', 'HomeController@career');
 Route::get('/products', 'HomeController@products');
 Route::get('/services', 'HomeController@services');
+
 Route::resource('/contact','ContactFormController');
+Route::resource('/career', 'AdminSection\CareerController');
+
 
 Auth::routes();
 
@@ -45,7 +52,10 @@ Route::resource('/admin/our-products', 'AdminSection\OurProductsController');
 Route::resource('/admin/our-services', 'AdminSection\OurServicesController');
 
 Route::resource('/admin/footer-contents', 'AdminSection\FooterController');
-Route::resource('/career', 'AdminSection\CareerController');
+Route::get('/terms', 'AdminSection\FooterController@terms')->name('terms');
+// Route::get('/services', 'AdminSection\FooterController@services')->name('services');
+
+
 
 Route::resource('/admin/contactus', 'AdminSection\Contactus\ContactusController');
 Route::get('/admin/career', 'AdminSection\CareerController@careerAdmin');

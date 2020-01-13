@@ -54,7 +54,7 @@ class ProductAndServices extends Controller
      */
     public function show($id)
     {
-        //
+        dd('');
     }
 
     /**

@@ -41,7 +41,7 @@ class AboutUsController extends Controller
      */
     public function store(Request $request)
     {
-            $data = $request->validate(['title'=>'required','content'=>'required','logo'=>'required']);
+            $data = $request->validate(['title'=>'nullable','content'=>'required','logo'=>'required']);
             $filename = $request->file('logo')->getClientOriginalName();
             $extension = $request->file('logo')->getClientOriginalExtension();
             $fileNameToStore = $filename;              
