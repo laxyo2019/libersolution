@@ -4,7 +4,7 @@
 	<main class="app-content">
 		<div class="app-title">
 			<div class="div">
-				<h1><i class="fa fa-laptop"></i> Sidebar Content Section</h1>
+				<h1><i class="fa fa-laptop"></i> Header Logo Section</h1>
 			</div>
 			<ul class="app-breadcrumb breadcrumb">
 				<span class="ml-2">
@@ -25,44 +25,34 @@
 					<div class="card-body">
 						<div class="row form-group">
 							<div id="emp_docs">
-								<form method="post" action="{{route('home.update',$data->id)}}" enctype='multipart/form-data'>
-								@csrf
-								@method('PATCH')
+								<form method="post" action="{{route('logo.store')}}" enctype='multipart/form-data'>
+									@csrf
 
 									<div class="row">
 									    <div class="col form-group">
-									    	<label for="">Contents</label>
-									    	<textarea style="max-height: 101px;" name="contents" value="{{$data->contents}}" class="form-control" cols="30" rows="10">{{$data->contents}}</textarea>
-									    	@error('contents')
+									    	<label for="">Title</label>
+									    	<input type="text" name="title" id="title" class="form-control" cols="30" rows="10"> </input>
+									    	@error('title')
 		                                      <span class="text-danger" role="alert">
 		                                          <strong>{{ $message }}</strong>
 		                                      </span>
 		                                	@enderror
 									    </div>
 									    <div class="col form-group">
-									    	<label for="">Slider Image</label>
-									    	<input style="width: 311px;" type="file" name="file" value="{{$data->file}}"><br>
-									    	<img src="{{asset("storage/images/$data->file")}}" height="50px" width="50px" style="border-radius: 40%;" />
-									    	@error('file')
-		                                      <span class="text-danger" role="alert">
-		                                          <strong>{{ $message }}</strong>
-		                                      </span>
-		                                	@enderror
-									    </div>
-									    <div class="col form-group">
-									    	<label for="">Slider Logo</label>
-									    	<input style="width: 311px;" type="file" name="logo" id="logo" class="logo" value="{{$data->logo}}"><br>
-							    			<img src="{{asset("storage/images/$data->logo")}}" height="50px" width="50px" style="border-radius: 40%;" />
+									    	<label for="">Logo</label>
+									    	<input style="width: 311px;" type="file" name="logo" id="image" class="image"><br>
+							    		<div class="image" style="height: 30px;"></div>
 									    	@error('logo')
 		                                      <span class="text-danger" role="alert">
 		                                          <strong>{{ $message }}</strong>
 		                                      </span>
 		                                	@enderror
 									    </div>
-									  </div>
+									    
+									</div>
 									<div class="row mb-5 mt-3">
 										<div class="col-md-12 col-sm-12 text-center" >
-											<input type="submit" value="Update" class="btn btn-primary"> 
+											<input type="submit" value="Submit" class="btn btn-primary"> 
 										</div>
 									</div>	
 								</form>
@@ -74,4 +64,23 @@
 			</div>
 		</div>
 	</main>
+	<script>
+	$(document).ready(function(){
+		$(".image").change(function () {
+	        var img_id = $(this).attr('id');
+	        filePreview(this,img_id);
+	    });
+	});
+	 function filePreview(input,img_id) {
+
+	    if (input.files && input.files[0]) {
+	        var reader = new FileReader();
+	        reader.onload = function (e) {
+	            $('#'+img_id+' + img').remove();
+	            $('.'+img_id).html('<img src="'+e.target.result+'" width="100" height="78"/>');
+	        }
+	        reader.readAsDataURL(input.files[0]);
+	    }
+	}
+</script>
 @endsection

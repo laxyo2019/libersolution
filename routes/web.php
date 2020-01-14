@@ -1,8 +1,8 @@
 <?php
-use App\Models\Admin\Home;
-use App\Models\Admin\ProductAndServicesModel;
-use App\Models\Admin\PlatformAndFrameworkModel;
-use App\Models\Admin\FooterContent;
+// use App\Models\Admin\Home;
+// use App\Models\Admin\ProductAndServicesModel;
+// use App\Models\Admin\PlatformAndFrameworkModel;
+// use App\Models\Admin\HeaderLogosModel;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +34,7 @@ Route::get('/career', 'HomeController@career');
 Route::get('/products', 'HomeController@products');
 Route::get('/services', 'HomeController@services');
 
+
 Route::resource('/contact','ContactFormController');
 Route::resource('/career', 'AdminSection\CareerController');
 
@@ -63,6 +64,9 @@ Route::get('/admin/career', 'AdminSection\CareerController@careerAdmin');
 
 Route::get('/admin/contact-data','ContactFormController@viewContactForm');
 Route::get('/admin/career/{id}', 'AdminSection\CareerController@downloadDocs')->name('career.download');
+
+Route::resource('/admin/logo', 'AdminSection\Logos\HeaderLogoController');
+
 
 });
 // Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');

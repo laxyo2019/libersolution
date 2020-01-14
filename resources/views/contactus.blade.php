@@ -92,7 +92,7 @@
 		      <form class="contact-us-form" style="width: 100%" action="{{route('contact.store')}}" method="post">
              @csrf
              <div class="form-group col-md-12 input-error">
-		          <input name="name" class="form-control required" placeholder="Full Name" type="text">
+		          <input name="name" class="form-control required" required placeholder="Full Name" type="text">
               @error('name')
                 <span class="text-danger" role="alert">
                     <strong>{{ $message }}</strong>
@@ -100,7 +100,7 @@
               @enderror
 		        </div>
               <div class="form-group col-md-12 input-error">
-              <input name="phone" class="form-control required" placeholder="Phone Number" type="number">
+              <input name="phone" class="form-control required" required placeholder="Phone Number" type="number">
                @error('phone')
                 <span class="text-danger" role="alert">
                     <strong>{{ $message }}</strong>
@@ -108,7 +108,7 @@
               @enderror
             </div>
 		        <div class="form-group col-md-12 input-error">
-		          <input name="email" class="form-control required" placeholder="Your E-mail Address*" type="email">
+		          <input name="email" class="form-control required" required placeholder="Your E-mail Address*" type="email">
                @error('email')
                 <span class="text-danger" role="alert">
                     <strong>{{ $message }}</strong>
@@ -116,7 +116,7 @@
               @enderror
 		        </div>
 		        <div class="form-group col-md-12 input-error">
-		          <textarea name="message" class="form-control required" placeholder="Describe your case briefly?"></textarea>
+		          <textarea name="message" class="form-control required" required placeholder="Describe your case briefly?"></textarea>
               @error('message')
                 <span class="text-danger" role="alert">
                     <strong>{{ $message }}</strong>

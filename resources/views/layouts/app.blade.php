@@ -8,8 +8,10 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Liber') }}</title>
-
+    <title >{{ config('app.name', 'Liber') }}</title>
+    {{-- <img src="{{ asset('/images/loc.png') }}"> --}}
+  {{--   <link rel="icon" type="image/ico" href="{{ asset('/images/loc.png') }}" />
+    <link rel="shortcut icon" type="image/png" href="loc.png"/>  --}}
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('web/assets/jquery/jquery.min.js')}}"></script>
@@ -18,12 +20,11 @@
     <script src="{{ asset('bootstrap/js/bootstrap.min.js')}}"></script>
     <script src="{{ asset('dropdown/js/nav-dropdown.js')}}"></script>
     <script src="{{ asset('dropdown/js/navbar-dropdown.js')}}"></script>
-    <script src="{{asset('touchswipe/jquery.touch-swipe.min.js')}}"></script>
-    <script src="{{asset('parallax/jarallax.min.js')}}"></script>
-    <script src="{{asset('smoothscroll/smooth-scroll.js')}}"></script>
+    <script src="{{ asset('touchswipe/jquery.touch-swipe.min.js')}}"></script>
+    <script src="{{ asset('parallax/jarallax.min.js')}}"></script>
+    <script src="{{ asset('smoothscroll/smooth-scroll.js')}}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">  
@@ -37,6 +38,7 @@
     <link rel="stylesheet" href="{{ asset('theme/css/style.css')}}">
     <link rel="stylesheet" href="{{ asset('mobirise/css/mbr-additional.css')}}" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
         {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> --}}
     <!-- Styles -->
     {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
@@ -86,7 +88,12 @@
                 </button>
                 <div class="menu-logo">
                     <div class="navbar-brand">
-                        <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-5" href="{{ '/' }}"><img src="images/law-icon.png" alt="" data-popupalt-original-title="null" title="" width="32px"> <span>LIBER</span></a></span>
+                      <?php
+                        $headerSession = session()->get('headerLogo');
+                          foreach ($headerSession as $value) { ?>
+                            
+                        <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-5" href="{{ '/' }}"><img src="{{asset('storage/images/'.$value->logo)}}" alt="" data-popupalt-original-title="null" title="" width="32px"> <span>{{$value->title}}</span></a></span>
+                        <?php } ?>
                     </div>
                 </div>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -136,6 +143,7 @@
         @yield('content')
 
         <section>
+
             <div class="footer-wrapper">
                   <div class="container">
                     <div class="row">
@@ -151,8 +159,9 @@
                                <li><i class="fa fa-angle-double-right"></i><a target="_blank" href="http://lakshyainternationalschool.org/"> Lakshya International School</a></li>
                               <li><i class="fa fa-angle-double-right"></i><a target="_blank" href="http://www.apnagps.com/"> Apna GPS</a></li>
                               <li><i class="fa fa-angle-double-right"></i><a target="_blank" href="http://www.discountbrandfactory.com/"> Discount Brand Factory</a></li>
-                              <li><i class="fa fa-angle-double-right"></i><a target="_blank" href="http://www.advocatemail.com/"> Adlaw</a></li>
-                              <li><i class="fa fa-angle-double-right"></i><a target="_blank" href="http://www.advocatemail.com/"> Courts Judgments</a></li>
+                              <li><i class="fa fa-angle-double-right"></i><a target="_blank" href="http://www.advocatemail.com/"> Advocat Email</a></li>
+                                <li><i class="fa fa-angle-double-right"></i><a target="_blank" href="http://www.adlaw.in/"> Adlaw</a></li>
+                              <li><i class="fa fa-angle-double-right"></i><a target="_blank" href="https://www.courtsjudgments.com/"> Courts Judgments</a></li>
                               <li><i class="fa fa-angle-double-right"></i><a target="_blank" href="http://www.maagayatrihospital.org/"> Maa Gayatri Hospital</a></li>
                             </ul>
                        </div>
@@ -161,7 +170,7 @@
                         <div class="col-sm-3 col-md-3 "> 
                         {{-- <img src="images/law-icon.png" alt="" data-popupalt-original-title="null" title="" width="50px"> --}}
                         <span class="navbar-caption-wrap ml-3">
-                            <a class="navbar-caption text-white display-5" style="font-size:40px" href="{{ '/' }}"> <h3>Corp. Off. - Indore</h3> </a></span>
+                            <a class="navbar-caption text-white display-5" style="font-size:40px" href="{{ '/' }}"> <h3>CONTACT US</h3> </a></span>
                        <div class="wfoot_content mt-3">
                           <div>
                             <ul class="contact-details-alt">
@@ -219,26 +228,22 @@
              
                         </ul>
                       </div>
-                    </div>
-                  </div>
-                       <section class="footer_bottom">
-                        <div class="container mt-4">
+                      <div class="container mt-4 footer">
                           <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6">
                               <p class="copyright">Copyright © 2020 LAXYO -  All rights reserved.</p>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
-                              <p class="desined-by pull-right">Designed And Developed by <a href="http://www.laxyo.com">Laxyo Group</a></p>
+                              <p class="desined-by pull-right">Designed And Developed by <a href="http://www.laxyosolutionsoft.com/" target="_blank">Liber Solutions Pvt.Ltd.</a></p>
                             </div>
                           </div>
                         </div>
-                  </section>
-                </div>
-
+                     </div>
+                    </div>
+                  </div>
+                        
+              </div>
               </section>
-
-            </div>
-
               <style type="text/css">
                 a, a:hover {color: #fff;}
                 .fa.fa-map-marker {color: #fff;margin-inline: 10px;}
@@ -250,7 +255,22 @@
                     padding: block;
                     padding-block: inherit;
                 }
-
+                .carousel-fade .carousel-inner .active, .carousel-fade .carousel-inner .next.left, .carousel-fade .carousel-inner .prev.right {
+                  max-height: 420px;}
+                  .banner-wrapper .carousel-control.left  {
+                    background-image: none;
+                    top: -202px;
+                    z-index: 2;
+                    position: relative;
+                    margin-left: 67px;
+                }
+                 .banner-wrapper .carousel-control.right  {
+                    background-image: none;
+                    top: -202px;
+                    z-index: 2;
+                    position: relative;
+                    margin-left: 67px;
+                }
                 .inner-page-wrapper.aboutus-wrapper {
                 padding: 10px 0 114px;}
               </style>

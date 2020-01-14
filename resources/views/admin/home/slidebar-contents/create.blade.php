@@ -42,8 +42,18 @@
 									    	<label for="">Slider Image</label>
 									    	<input style="width: 311px;" type="file" name="file" id="image" class="image"><br>
 							    		<div class="image" style="height: 30px;"></div>
-
 									    	@error('file')
+		                                      <span class="text-danger" role="alert">
+		                                          <strong>{{ $message }}</strong>
+		                                      </span>
+		                                	@enderror
+									    </div>
+
+									    <div class="col form-group">
+									    	<label for="">SliderLogo</label>
+									    	<input style="width: 311px;" type="file" name="logo" id="logo" class="logo"><br>
+							    		<div class="logo" style="height: 30px;"></div>
+									    	@error('logo')
 		                                      <span class="text-danger" role="alert">
 		                                          <strong>{{ $message }}</strong>
 		                                      </span>

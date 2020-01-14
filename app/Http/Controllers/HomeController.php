@@ -13,6 +13,8 @@ use App\Models\Admin\ProductmastModel;
 use App\Models\Admin\ServicemastModel;
 use App\Models\Admin\FooterContent;
 use App\Models\Contactus;
+use App\Models\Admin\Logos\HeaderLogosModel;
+use Session;
 
 class HomeController extends Controller
 {
@@ -36,6 +38,8 @@ class HomeController extends Controller
         $this->middleware('auth');
 
         return view('admin.index');
+          
+        // return view('layouts.app',compact('headerLogo'));
     }
 
     public function show()
@@ -53,6 +57,9 @@ class HomeController extends Controller
         $productAndServices = ProductAndServicesModel::all();
         $platformAndFramework = PlatformAndFrameworkModel::all();
         $footer = FooterContent::all();
+        $headerLogo = HeaderLogosModel::all();
+        Session()->put('headerLogo',$headerLogo);
+        
             return view('home',compact('slideData','productAndServices','platformAndFramework','footer'));
     }
     public function aboutus()
@@ -95,7 +102,7 @@ class HomeController extends Controller
         $slideData = Home::all();
             return view('view-product-details',compact('productData','slideData'));
     }
-     public function serviceProduct($id)
+    public function serviceProduct($id)
     {    
         $serviceData = ServicemastModel::where('id',$id)->first();
         // dd($serviceData);
@@ -103,4 +110,15 @@ class HomeController extends Controller
 
             return view('view-services-details',compact('serviceData','slideData'));
     }
+    public function headerLogo()
+    {    
+        $headerLogo = HeaderLogosModel::first();
+
+            return view('layouts.app',compact('headerLogo'));
+    }
+
+    // public function headerLogo(Request $request){
+    //         $ids = $request->id;
+    //        Session::put('ids',$ids);
+    // }
 }

@@ -20,7 +20,7 @@
               <div class="row">
                 <div class="container">
                   <div class="hero">
-                    <img class="icon" data-animation="animated bounceInLeft" src="images/header-law-icon.png" alt=""> <h2 data-animation="animated bounceInLeft" class=""><span>{{$datas->contents}}</span></h2>
+                    <img class="icon" data-animation="animated bounceInLeft" src="{{asset('storage/images/'.$datas->logo)}}" alt=""> <h2 data-animation="animated bounceInLeft" class=""><span>{{$datas->contents}}</span></h2>
                    
                     <a class="btn-one" data-animation="animated bounceInLeft" href="javascript:void(0)">Request a free consultation</a></div>
                 </div>
@@ -76,7 +76,9 @@
         <h2 class="text-center">Services</h2>
       </div>
         <div class="row" >
-        <?php $count = 1; ?>
+        <?php $count = 1;
+
+         ?>
           @foreach($platformAndFramework as $platformAndFrameworks)
             <div class="col-md-4 col-sm-6" >
               <div class="service-item header" id="myHeader" style="max-width: 350px;min-height: 350px;">

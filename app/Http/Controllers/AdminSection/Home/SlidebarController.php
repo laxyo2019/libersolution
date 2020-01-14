@@ -64,9 +64,20 @@ class SlidebarController extends Controller
                 $file  = Home::find($id);
                 $data['file'] = $file->file;            
             }
+
+            if($request->hasFile('logo')){
+                $filename = $request->file('logo')->getClientOriginalName();
+                $extension = $request->file('logo')->getClientOriginalExtension();
+                $fileNameToStore = $filename;              
+                $path = $request->file('logo')->storeAs('public/images',$fileNameToStore);
+                $data['logo'] = $fileNameToStore;          
+            }else{
+                $file  = Home::find($id);
+                $data['logo'] = $file->logo;            
+            }
             $data1 = Home::where('id', $id)->update($data); 
             if ($data1) {
-                return redirect()->back()->with('message', 'Slidebar updateD successfully');
+                return redirect()->back()->with('message', 'Slidebar updated successfully');
             }
     }
 

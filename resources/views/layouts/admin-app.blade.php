@@ -13,7 +13,7 @@
     <meta property="og:url" content="http://pratikborsadiya.in/blog/vali-admin">
     <meta property="og:image" content="http://pratikborsadiya.in/blog/vali-admin/hero-social.png">
     <meta property="og:description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
-    <title>Liber</title>
+    <title>{{ config('app.name', 'Liber') }}</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -88,6 +88,15 @@
         <li><a class="app-menu__item" href="{{url('/admin/contact-data')}}"><i class="app-menu__icon fa fa-address-card"></i><span class="app-menu__label">Contact Form Data</span></a></li>
 
         <li><a class="app-menu__item" href="{{url('admin/footer-contents')}}"><i class="app-menu__icon  fa fa-bars"></i><span class="app-menu__label">All Footer Contents</span></a></li>
+       {{--  <li><a class="app-menu__item" href="{{url('admin/footer-contents')}}"><i class="app-menu__icon  fa fa-bars"></i><span class="app-menu__label">Logos</span></a></li> --}}
+         <li class="treeview {{ Request::segment(2) == 'logo' ? 'is-expanded ' : '' || Request::segment(2) == 'logo' ? 'is-expanded ' : '' }}"><a class="app-menu__item " href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Logos</span><i class="treeview-indicator fa fa-angle-right" ></i></a>
+
+          <ul class="treeview-menu " >
+            <li class={{call_user_func_array('Request::is', (array)['/admin/logo*']) ? 'active_subtab' : ''}}><a class="treeview-item active" href="{{url('admin/logo')}}"><i class="icon fa fa-podcast"></i> Header Logo</a>
+            </li>
+
+          </ul>
+        </li>
 
         {{-- <li><a class="app-menu__item"  href="{{route('logout')}}"><i class="fa fa-sign-out fa-lg"></i> Logout</a></li> --}}
       <li><a class="app-menu__item" href="{{ route('logout') }}"onclick="event.preventDefault();
