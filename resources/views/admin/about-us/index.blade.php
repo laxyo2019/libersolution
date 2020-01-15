@@ -6,7 +6,7 @@
 		
 		<div class="app-title">
 			<div class="div">
-				<h1><i class="fa fa-laptop"></i> Sidebar Content Section</h1>
+				<h1><i class="fa fa-laptop"></i> Aboutus Content Section</h1>
 			</div>
 			<ul class="app-breadcrumb breadcrumb">
 				<span class="ml-2">

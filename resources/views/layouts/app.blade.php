@@ -142,10 +142,10 @@
 
         @yield('content')
 
-        <section>
+        <section class="footer mt-25">
 
-            <div class="footer-wrapper">
-                  <div class="container">
+            <div class="footer-wrapper footer">
+                  <div class="container footer">
                     <div class="row">
                       <div class="col-sm-3 col-md-4" > 
                         {{-- <img src="images/law-icon.png" alt="" data-popupalt-original-title="null" title="" width="50px"> --}}
@@ -217,14 +217,15 @@
                               <li><a class="twtr" href="https://twitter.com/LaxyoGroup" data-placement="top" data-toggle="tooltip" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a></li>
                               <li><a class="twtr" href="https://in.linkedin.com/in/laxyo-group-21242a118" data-placement="top" data-toggle="tooltip" title="Linkedin" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
              
-                        </ul>                      </div>
+                        </ul>                      
+                      </div>
                         <div class="container mt-4 footer">
                           <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6">
                               <p class="copyright">Copyright © 2020 LAXYO -  All rights reserved.</p>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
-                              <p class="desined-by pull-right">Designed And Developed by <a href="http://www.laxyosolutionsoft.com/" target="_blank">Liber Solutions Pvt.Ltd.</a></p>
+                              <p class="desined-by pull-right ">Designed And Developed by <span><a href="#" target="_blank" class="copywrite">Liber Solutions Pvt.Ltd.</a></span></p>
                             </div>
                           </div>
                         </div>
@@ -268,6 +269,7 @@
                   margin-top: 5px;
                   color: #fff;
               }
+              .copywrite {color: #3c8dbc;}
               </style>
                      
 </html>

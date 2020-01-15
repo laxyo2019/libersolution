@@ -87,7 +87,7 @@
 
         <li><a class="app-menu__item" href="{{url('/admin/contact-data')}}"><i class="app-menu__icon fa fa-address-card"></i><span class="app-menu__label">Contact Form Data</span></a></li>
 
-        <li><a class="app-menu__item" href="{{url('admin/footer-contents')}}"><i class="app-menu__icon  fa fa-bars"></i><span class="app-menu__label">All Footer Contents</span></a></li>
+       {{--  <li><a class="app-menu__item" href="{{url('admin/footer-contents')}}"><i class="app-menu__icon  fa fa-bars"></i><span class="app-menu__label">All Footer Contents</span></a></li> --}}
        {{--  <li><a class="app-menu__item" href="{{url('admin/footer-contents')}}"><i class="app-menu__icon  fa fa-bars"></i><span class="app-menu__label">Logos</span></a></li> --}}
          <li class="treeview {{ Request::segment(2) == 'logo' ? 'is-expanded ' : '' || Request::segment(2) == 'logo' ? 'is-expanded ' : '' }}"><a class="app-menu__item " href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Logos</span><i class="treeview-indicator fa fa-angle-right" ></i></a>
 
