@@ -64,11 +64,11 @@
           @foreach($productsData as $products)
             <div class="col-md-6">
               <div class="callouts callout-img1" style="max-height: 500px;min-height: 500px; margin-bottom: 20px;" >
-                <h3>{{$products->product_title}}</h3>
-                <span class="callouts-line"><img src="{{asset('storage/images/'.$products->file)}}" alt="" width="50px" height="50px"></span>
+                 <a href="{{$products->product_url}}"  target="_blank"><h3></a>{{$products->product_title}}</h3>
+                <span class="callouts-line"><img src="{{asset('storage/images/'.$products->file)}}" alt="" width="100px" height="100px"></span></a>
                 <div class="product-content"><p>{{$products->content}}</p></div>
                 {{-- <a  href="" target="_blank"></a> --}}
-                <a class="btn-one" href="{{route('view',$products->id)}}" target="_blank">Read More</a> </div>
+                <a class="btn-one" href="{{route('view',$products->id)}}" target="_blank" style="margin-top: 60px;">Read More</a> </div>
             </div>
            @endforeach
           </div>

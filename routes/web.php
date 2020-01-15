@@ -24,9 +24,12 @@
 // });
 
 Route::get('/', 'HomeController@home');
-Route::get('/view/{id}', 'HomeController@viewProduct')->name('view');
-Route::get('/service/{id}', 'HomeController@serviceProduct')->name('service');
 
+Route::get('/view/{id}', 'HomeController@viewProduct')->name('view');
+Route::get('/service/{id}', 'HomeController@viewService')->name('service');
+
+Route::get('/product/view/{id}', 'HomeController@viewProduct1')->name('product-view');
+Route::get('/service/view/{id}', 'HomeController@viewService1')->name('service-view');
 
 Route::get('/aboutus', 'HomeController@aboutus');
 Route::get('/contactus', 'HomeController@contactus');

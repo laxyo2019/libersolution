@@ -50,7 +50,7 @@
 									    </div>
 
 									    <div class="col form-group">
-									    	<label for="">SliderLogo</label>
+									    	<label for="">Slider Logo</label>
 									    	<input style="width: 311px;" type="file" name="logo" id="logo" class="logo"><br>
 							    		<div class="logo" style="height: 30px;"></div>
 									    	@error('logo')

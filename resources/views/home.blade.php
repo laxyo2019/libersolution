@@ -47,16 +47,16 @@
     <?php $count = 1; ?>
       @foreach($productAndServices as $productAndServices)
         <div class="col-md-6 mt" style="margin-bottom: 30px;">
-          <div class="callouts callout-img{{$count++}}" style="max-height: 400px;min-height: 400px;">
+          <div class="callouts callout-img{{$count++}}" style="max-height: 500px;min-height: 500px;">
            <a href="{{$productAndServices->product_url}}"  target="_blank"><h3>{{$productAndServices->product_title}}</h3>
             <span class="callouts-line">
-              <img src="{{asset('storage/images/'.$productAndServices->file)}}" alt="" width="100px;" height="100px;">
+              <img src="{{asset('storage/images/'.$productAndServices->file)}}" alt="" width="100px;" height="100px;" style="margin-top: 60px;">
             </span></a>
             <div class="product-content">
               <p>{{$productAndServices->content}}</p>
             </div>
-            <div class="btn-one ">
-              <a href="{{route('view',$productAndServices->id)}}" target="_blank" class="">Read More</a> 
+            <div class="btn-one " style="margin-top: 60px;">
+              <a href="{{route('product-view',$productAndServices->id)}}" target="_blank" >Read More</a> 
             </div>
           </div>
 
@@ -89,7 +89,7 @@
                 <div class="teaser more service-content" >
                 {{ $platformAndFrameworks->content}}
                 </div>
-                <a  href="{{route('service',$platformAndFrameworks->id)}}" target="_blank">Read More</a>
+                <a  href="{{route('service-view',$platformAndFrameworks->id)}}" target="_blank" >Read More</a>
                 {{-- <div class="icon-box"><img src="images/service-item-icon1.png" alt=""></div> --}}
                 
               </div>
@@ -103,6 +103,4 @@
 <script type="text/javascript">
     $('.carousel').carousel();
 </script>
-
-</style>
 @endsection

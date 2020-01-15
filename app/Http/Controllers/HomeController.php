@@ -97,19 +97,33 @@ class HomeController extends Controller
     {    
 
         $productData = ProductmastModel::where('id',$id)->first();
-        // dd($productData);
-
         $slideData = Home::all();
             return view('view-product-details',compact('productData','slideData'));
     }
-    public function serviceProduct($id)
+    public function viewService($id)
     {    
         $serviceData = ServicemastModel::where('id',$id)->first();
-        // dd($serviceData);
         $slideData = Home::all();
 
             return view('view-services-details',compact('serviceData','slideData'));
     }
+
+    public function viewProduct1($id)
+    {    
+
+        $productData = ProductAndServicesModel::where('id',$id)->first();
+        $slideData = Home::all();
+            return view('view-product-details',compact('productData','slideData'));
+    }
+    public function viewService1($id)
+    {    
+        $serviceData = PlatformAndFrameworkModel::where('id',$id)->first();
+        $slideData = Home::all();
+
+            return view('view-services-details',compact('serviceData','slideData'));
+    }
+
+
     public function headerLogo()
     {    
         $headerLogo = HeaderLogosModel::first();

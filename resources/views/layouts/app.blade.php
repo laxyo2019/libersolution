@@ -153,15 +153,22 @@
                             <a class="navbar-caption text-white display-5" style="font-size:40px" href="{{ '/' }}"> <h3>Our Group Companies </h3></a></span>
                           <div class="mt-3">
                             <ul class="wfoot_content" >
+
+                             <li><i class="fa fa-angle-double-right"></i><a target="_blank" href="http://www.laxyo.com/"> Laxyo Energy Pvt. Ltd.</a></li>
+                             
+                                <li><i class="fa fa-angle-double-right"></i><a target="_blank" href="http://www.adlaw.in/"> Adlaw</a></li>
+
+                              <li><i class="fa fa-angle-double-right"></i><a target="_blank" href="https://www.courtsjudgments.com/"> Courts Judgments</a></li>
+
+                             <li><i class="fa fa-angle-double-right"></i><a target="_blank" href="http://www.apnagps.com/"> Apna GPS</a></li>
+
+                              <li><i class="fa fa-angle-double-right"></i><a target="_blank" href="http://www.advocatemail.com/"> Advocat Email</a></li>
+                              <li><i class="fa fa-angle-double-right"></i><a target="_blank" href="http://www.discountbrandfactory.com/"> Discount Brand Factory</a></li>
+
                               <li><i class="fa fa-angle-double-right"></i><a target="_blank" href="http://www.laxyofinance.com/"> Laxyo Finance Limited</a></li>
                               <li><i class="fa fa-angle-double-right"></i><a target="_blank" href="http://www.yolaxinfra.com/"> Yolax Infranergy Pvt. Ltd.</a></li>
-                              <li><i class="fa fa-angle-double-right"></i><a target="_blank" href="http://www.laxyosolutionsoft.com/"> Liber Solutions Pvt. Ltd.</a></li>
                                <li><i class="fa fa-angle-double-right"></i><a target="_blank" href="http://lakshyainternationalschool.org/"> Lakshya International School</a></li>
-                              <li><i class="fa fa-angle-double-right"></i><a target="_blank" href="http://www.apnagps.com/"> Apna GPS</a></li>
-                              <li><i class="fa fa-angle-double-right"></i><a target="_blank" href="http://www.discountbrandfactory.com/"> Discount Brand Factory</a></li>
-                              <li><i class="fa fa-angle-double-right"></i><a target="_blank" href="http://www.advocatemail.com/"> Advocat Email</a></li>
-                                <li><i class="fa fa-angle-double-right"></i><a target="_blank" href="http://www.adlaw.in/"> Adlaw</a></li>
-                              <li><i class="fa fa-angle-double-right"></i><a target="_blank" href="https://www.courtsjudgments.com/"> Courts Judgments</a></li>
+                              
                               <li><i class="fa fa-angle-double-right"></i><a target="_blank" href="http://www.maagayatrihospital.org/"> Maa Gayatri Hospital</a></li>
                             </ul>
                        </div>
