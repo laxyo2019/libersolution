@@ -147,10 +147,10 @@
             <div class="footer-wrapper">
                   <div class="container">
                     <div class="row">
-                      <div class="col-sm-3 col-md-3" > 
+                      <div class="col-sm-3 col-md-4" > 
                         {{-- <img src="images/law-icon.png" alt="" data-popupalt-original-title="null" title="" width="50px"> --}}
                         <span class="navbar-caption-wrap ml-3">
-                            <a class="navbar-caption text-white display-5" style="font-size:40px" href="{{ '/' }}"> <h3>Laxyo Group Companies </h3></a></span>
+                            <a class="navbar-caption text-white display-5" style="font-size:40px" href="{{ '/' }}"> <h3>Our Group Companies </h3></a></span>
                           <div class="mt-3">
                             <ul class="wfoot_content" >
                               <li><i class="fa fa-angle-double-right"></i><a target="_blank" href="http://www.laxyofinance.com/"> Laxyo Finance Limited</a></li>
@@ -167,10 +167,10 @@
                        </div>
                         
                       </div>
-                        <div class="col-sm-3 col-md-3 "> 
+                        <div class="col-sm-3 col-md-4 "> 
                         {{-- <img src="images/law-icon.png" alt="" data-popupalt-original-title="null" title="" width="50px"> --}}
                         <span class="navbar-caption-wrap ml-3">
-                            <a class="navbar-caption text-white display-5" style="font-size:40px" href="{{ '/' }}"> <h3>CONTACT US</h3> </a></span>
+                            <a class="navbar-caption text-white display-5" style="font-size:40px" href="{{ '/' }}"> <h3>Contacts Us</h3> </a></span>
                        <div class="wfoot_content mt-3">
                           <div>
                             <ul class="contact-details-alt">
@@ -187,10 +187,10 @@
                         </div>
                         
                       </div>
-                        <div class="col-sm-3 col-md-3"> 
+                        <div class="col-sm-3 col-md-4"> 
                         {{-- <img src="images/law-icon.png" alt="" data-popupalt-original-title="null" title="" width="50px"> --}}
                         <span class="navbar-caption-wrap ml-3">
-                            <a class="navbar-caption text-white display-5" style="font-size:40px" href="{{ '/' }}"><h3> Regd. Off. - Ratlam</h3></a></span>
+                            <a class="navbar-caption text-white display-5" style="font-size:40px" href="{{ '/' }}"><h3> Rig. Off. - Ratlam</h3></a></span>
                        <div class="wfoot_content mt-3">
                            <ul class="contact-details-alt">
                               <li><i class="fa fa-map-marker"></i>
@@ -203,32 +203,15 @@
                                 <p><span>Fax</span>: +91-7412-232432</p>
                               </li>
                             </ul>
+
                           </div>
-                        
-                      </div>
-                        <div class="col-sm-3 col-md-3"> 
-                        {{-- <img src="images/law-icon.png" alt="" data-popupalt-original-title="null" title="" width="50px"> --}}
-                        <span class="navbar-caption-wrap ml-3">
-                            <a class="navbar-caption text-white display-5" style="font-size:40px" href="{{ '/' }}"><h3>Reg. Off. - Chittorgarh</h3> </a></span>
-                        <div class="wfoot_content mt-3">
-                           <ul class="contact-details-alt">
-                              <li><i class="fa fa-map-marker"></i>
-                                <p>CF-5, Madhav Nagar, Chanderia, Dist. Chittorgarh, (Raj.) 312021 </p>
-                              </li>
-                              <li><i class="fa fa-phone"></i>
-                                <p><span>Phone</span>: +91-1474-256710</p>
-                              </li>
-                              
-                            </ul>
-                          </div>
-                        <ul class="social-icons">
-                          <li><a class="fb" href="https://www.facebook.com/laxyoGroup/" data-placement="top" data-toggle="tooltip" title="Facbook" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                          <li><a class="twtr" href="https://twitter.com/LaxyoGroup" data-placement="top" data-toggle="tooltip" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                          <li><a class="twtr" href="https://in.linkedin.com/in/laxyo-group-21242a118" data-placement="top" data-toggle="tooltip" title="Linkedin" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                          <ul class="social-icons" style="margin-left: 12px;">
+                              <li><a class="fb" href="https://www.facebook.com/laxyoGroup/" data-placement="top" data-toggle="tooltip" title="Facbook" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                              <li><a class="twtr" href="https://twitter.com/LaxyoGroup" data-placement="top" data-toggle="tooltip" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                              <li><a class="twtr" href="https://in.linkedin.com/in/laxyo-group-21242a118" data-placement="top" data-toggle="tooltip" title="Linkedin" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
              
-                        </ul>
-                      </div>
-                      <div class="container mt-4 footer">
+                        </ul>                      </div>
+                        <div class="container mt-4 footer">
                           <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6">
                               <p class="copyright">Copyright © 2020 LAXYO -  All rights reserved.</p>
@@ -246,10 +229,10 @@
               </section>
               <style type="text/css">
                 a, a:hover {color: #fff;}
-                .fa.fa-map-marker {color: #fff;margin-inline: 10px;}
-                .fa.fa-phone {color: #fff;margin-inline: 10px;}
-                .fa.fa-envelope {color: #fff;margin-inline: 10px;}
-                .fa.fa-fax {color: #fff;margin-inline: 10px;}
+                .fa.fa-map-marker {color: #fff;margin-inline: 10px;margin-top: 5px;}
+                .fa.fa-phone {color: #fff;margin-inline: 10px;margin-top: 5px;}
+                .fa.fa-envelope {color: #fff;margin-inline: 10px;margin-top: 5px;}
+                .fa.fa-fax {color: #fff;margin-inline: 10px;margin-top: 5px;}
                 li {display: flex; }
                 .footer-wrapper {
                     padding: block;
@@ -273,6 +256,11 @@
                 }
                 .inner-page-wrapper.aboutus-wrapper {
                 padding: 10px 0 114px;}
+                .fa.fa-angle-double-right {
+                  margin-right: 5px;
+                  margin-top: 5px;
+                  color: #fff;
+              }
               </style>
                      
 </html>

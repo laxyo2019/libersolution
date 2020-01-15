@@ -128,7 +128,7 @@
       <div class="col-md-6">
       	<div class="careerImg">
         <div class="contact-img"> 
-         	<img src="images/student.png" alt=""> 
+         	<img src="images/istockphoto-844081944-1024x1024.jpg" alt=""> 
         </div>
       </div>
       </div>
