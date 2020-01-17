@@ -68,10 +68,12 @@
                 <span class="callouts-line"><img src="{{asset('storage/images/'.$products->file)}}" alt="" width="100px" height="100px"></span></a>
                 <div class="product-content"><p>{{$products->content}}</p></div>
                 {{-- <a  href="" target="_blank"></a> --}}
+
                 <a class="btn-one" href="{{route('view',$products->id)}}" target="_blank" style="margin-top: 60px;">Read More</a> </div>
             </div>
            @endforeach
           </div>
+          
         </div>
       </div>
     </div>

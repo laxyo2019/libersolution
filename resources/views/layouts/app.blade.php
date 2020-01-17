@@ -8,7 +8,9 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title >{{ config('app.name', 'Liber') }}</title>
+  {{-- <img src="{{URL::asset('/image/loc.png')}}" alt="profile Pic" height="200" width="200"> --}}
+  <link rel = "icon" href ="{{asset('/storage/images/loc.png')}}" type = "image/x-icon" style="line-height: 50px; width: 100px;" >
+    <title >Liber Solution</title>
     {{-- <img src="{{ asset('/images/loc.png') }}"> --}}
   {{--   <link rel="icon" type="image/ico" href="{{ asset('/images/loc.png') }}" />
     <link rel="shortcut icon" type="image/png" href="loc.png"/>  --}}
@@ -150,7 +152,7 @@
                       <div class="col-sm-3 col-md-4" > 
                         {{-- <img src="images/law-icon.png" alt="" data-popupalt-original-title="null" title="" width="50px"> --}}
                         <span class="navbar-caption-wrap ml-3">
-                            <a class="navbar-caption text-white display-5" style="font-size:40px" href="{{ '/' }}"> <h3>Our Group Companies </h3></a></span>
+                            <a class="navbar-caption text-white display-5" style="font-size:40px" href="{{ '/' }}"> <h3>Our Group And Companies </h3></a></span>
                           <div class="mt-3">
                             <ul class="wfoot_content" >
 
