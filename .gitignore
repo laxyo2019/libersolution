@@ -1,3 +1,5 @@
+/database/*.sql
+/database/*.sql.gz
 /node_modules
 /public/hot
 /public/storage
