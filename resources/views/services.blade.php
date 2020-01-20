@@ -27,12 +27,12 @@
             @foreach($slideData as $datas)
             <div class="carousel-item slides {{ $count == 1 ? 'active':''}}">
               <div class="slide-{{$count++}}">
-                <a href="#"><img src="{{asset('storage/images/'.$datas->file)}}" alt="Barrister"/></a>
+                <a href="#"><img src="{{asset('/storage/app/public/images/'.$datas->file)}}" alt="Barrister"/></a>
               </div>
               <div class="row">
                 <div class="container">
                   <div class="hero">
-                       <img class="icon" data-animation="animated bounceInLeft" src="images/header-law-icon.png" alt="">  <h1>Our Services</h1>
+                       {{-- <img class="icon" data-animation="animated bounceInLeft" src="images/header-law-icon.png" alt="">  --}} <h1>Our Services</h1>
                       <div class="inner-breadcrumb">
                         <ul>
                           <li><a href="{{ '/' }}">Home</a></li>

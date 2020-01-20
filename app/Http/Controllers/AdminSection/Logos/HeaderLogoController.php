@@ -43,7 +43,7 @@ class HeaderLogoController extends Controller
 
             $data1 = HeaderLogosModel::create($data);
             if ($data1) {
-                return redirect()->back()->with('message', 'Logo added successfully');
+                return redirect()->back()->with('message', 'Record added successfully');
             }
     }
 
@@ -75,7 +75,7 @@ class HeaderLogoController extends Controller
             }
             $data1 = HeaderLogosModel::where('id', $id)->update($data); 
             if ($data1) {
-                return redirect()->back()->with('message', 'Slidebar updateD successfully');
+                return redirect()->back()->with('message', 'Record updated successfully');
             }
     }
 

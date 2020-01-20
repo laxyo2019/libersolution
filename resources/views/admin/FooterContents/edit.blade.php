@@ -29,26 +29,25 @@
 								@method('PATCH')
 							
 							    <div class="row">
-							    <div class="col form-group">
-							    	<label for="">Heading	</label>
-							    	<input style="width: 311px;" type="heading" name="heading" id="heading" value="{{$data->heading}}"><br>
+							    <div class="col-md-6">
+							    	<label for="url">Heading	</label>
+							    	<input style="width: 311px;" type="text" name="heading" id="heading" value="{{$data->heading}}">
 							    	@error('heading')
                                       <span class="text-danger" role="alert">
                                           <strong>{{ $message }}</strong>
                                       </span>
                                 	@enderror
 							    </div>
-							    <div class="col form-group">
-							    	<label for="">Logo</label>
-							    	<input style="width: 311px;" type="file" name="logo" id="logo" value="{{$data->logo}}"><br>
-							    	<td><img src="{{asset("storage/images/$data->logo")}}" height="50px" width="50px" style="border-radius: 40%;" /></td>
-							    	@error('logo')
+							    <div class="col-md-6">
+							    	<label for="url">URL</label>
+							    	<input style="width: 311px;" type="text" name="url" id="url" value="{{$data->url}}">
+							    	@error('url')
                                       <span class="text-danger" role="alert">
                                           <strong>{{ $message }}</strong>
                                       </span>
                                 	@enderror
 							    </div>
-							    <div class="col form-group">
+							   {{--  <div class="col form-group">
 							    	<label for="">Contents</label>
 							    	<textarea style="max-height: 101px;" name="content" id="content" value="{{$data->content}}" class="form-control" cols="30" rows="10">{{$data->content}}</textarea>
 							    	@error('content')
@@ -56,7 +55,8 @@
                                           <strong>{{ $message }}</strong>
                                       </span>
                                 	@enderror
-							    </div>
+							    </div> --}}
+
 							</div>
 							<div class="row mb-5 mt-3">
 								<div class="col-md-12 col-sm-12 text-center" >

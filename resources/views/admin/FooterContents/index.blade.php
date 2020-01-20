@@ -6,7 +6,7 @@
 		
 		<div class="app-title">
 			<div class="div">
-				<h1><i class="fa fa-laptop"></i> Footer Content Section</h1>
+				<h1><i class="fa fa-laptop"></i> Our group and companies</h1>
 			</div>
 			<ul class="app-breadcrumb breadcrumb">
 				<span class="ml-2">
@@ -30,9 +30,9 @@
 							<thead>
 								<tr class="text-center">
 									<th>S. No.</th>
-									<th>Heading</th>
-									<th>Logo</th>
-									<th>Contents</th>
+									<th>Titele</th>
+									<th>URL</th>
+									{{-- <th>Contents</th> --}}
 									<th>Action</th>
 								</tr>
 							</thead>
@@ -42,8 +42,8 @@
 							<tr class="text-center">
 								<td>{{++$count}}</td>
 								<td>{{$getDatas->heading}}</td>
-								<td><img src="{{asset("storage/images/$getDatas->logo")}}" height="30px" width="30px" style="border-radius: 40%;" /></td>
-								<td>{{$getDatas->content}}</td>
+								{{-- <td><img src="{{asset("storage/images/$getDatas->logo")}}" height="30px" width="30px" style="border-radius: 40%;" /></td> --}}
+								<td>{{$getDatas->url}}</td>
 								<td >
 									<span>
 										<a href="{{route('footer-contents.edit',$getDatas->id)}}" class="btn btn-sm btn-outline-warning"><i class="fa fa-edit"></i> Edit</a>

@@ -56,9 +56,13 @@ class HomeController extends Controller
         $slideData = Home::all();
         $productAndServices = ProductAndServicesModel::all();
         $platformAndFramework = PlatformAndFrameworkModel::all();
-        $footer = FooterContent::all();
         $headerLogo = HeaderLogosModel::all();
         Session()->put('headerLogo',$headerLogo);
+
+        $footer = FooterContent::all();
+        
+        Session()->put('footer',$footer);
+        
         
             return view('home',compact('slideData','productAndServices','platformAndFramework','footer'));
     }

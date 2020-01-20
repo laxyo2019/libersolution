@@ -1,13 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\AdminSection;
+namespace App\Http\Controllers\AdminSection\Footer;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Admin\FooterContent;
-use File;
 
-class FooterController extends Controller
+class FooterForContactus extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,6 +14,7 @@ class FooterController extends Controller
      */
     public function index()
     {
+        dd('');
         $data = FooterContent::get();
         return view('admin.FooterContents.index',compact('data'));
     }

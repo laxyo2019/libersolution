@@ -13,7 +13,8 @@
     <meta property="og:url" content="http://pratikborsadiya.in/blog/vali-admin">
     <meta property="og:image" content="http://pratikborsadiya.in/blog/vali-admin/hero-social.png">
     <meta property="og:description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
-    <title>{{ config('app.name', 'Liber') }}</title>
+    <link rel = "icon" href ="{{asset('/storage/images/loc.png')}}" type = "image/x-icon" style="line-height: 50px; width: 100px;" >
+    <title >Liber Solutions</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,7 +26,7 @@
   </head>
   <body class="app sidebar-mini">
     <!-- Navbar-->
-    <header class="app-header"><a class="app-header__logo" href="{{route('admin')}}">Liber</a>
+    <header class="app-header"><a class="app-header__logo" href="{{route('admin')}}">Liber Solutions</a>
       <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
       <!-- Navbar Right Menu-->
       <ul class="app-nav">
@@ -70,9 +71,9 @@
             <li class={{call_user_func_array('Request::is', (array)['/admin/home*']) ? 'active_subtab' : ''}}><a class="treeview-item active" href="{{url('admin/home')}}"><i class="icon fa fa-podcast"></i> SlideBar Content</a>
             </li>
 
-            <li class={{call_user_func_array('Request::is', (array)['product-and-services']) ? 'active_subtab' : ''}}><a class="treeview-item" href="{{url('/admin/product-and-services')}}" ><i class="fa fa-shopping-basket"></i> Product And Services</a></li>
+            <li class={{call_user_func_array('Request::is', (array)['product-and-services']) ? 'active_subtab' : ''}}><a class="treeview-item" href="{{url('/admin/product-and-services')}}" ><i class="fa fa-shopping-basket"></i> Producs</a></li>
 
-            <li class={{call_user_func_array('Request::is', (array)['/admin/platform-and-framework*']) ? 'active_subtab' : ''}}><a class="treeview-item" href="{{url('/admin/platform-and-framework')}}" ><i class="fa fa-sitemap"></i> Platform and Fromeworks</a></li>
+            <li class={{call_user_func_array('Request::is', (array)['/admin/platform-and-framework*']) ? 'active_subtab' : ''}}><a class="treeview-item" href="{{url('/admin/platform-and-framework')}}" ><i class="fa fa-sitemap"></i> Services</a></li>
 
           </ul>
         </li>
@@ -89,6 +90,22 @@
 
        {{--  <li><a class="app-menu__item" href="{{url('admin/footer-contents')}}"><i class="app-menu__icon  fa fa-bars"></i><span class="app-menu__label">All Footer Contents</span></a></li> --}}
        {{--  <li><a class="app-menu__item" href="{{url('admin/footer-contents')}}"><i class="app-menu__icon  fa fa-bars"></i><span class="app-menu__label">Logos</span></a></li> --}}
+
+
+        <li class="treeview {{ Request::segment(2) == 'footer-contents' ? 'is-expanded ' : '' || Request::segment(2) == 'footer-contents' ? 'is-expanded ' : '' }}"><a class="app-menu__item " href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-bars"></i><span class="app-menu__label">All Footer Contents</span><i class="treeview-indicator fa fa-angle-right" ></i></a>
+
+          <ul class="treeview-menu " >
+            <li class={{call_user_func_array('Request::is', (array)['/admin/footer-contents*']) ? 'active_subtab' : ''}}><a class="treeview-item active" href="{{url('admin/footer-contents')}}"><i class="icon fa fa-podcast"></i> Our group and companies</a>
+            </li>
+            
+          </ul>
+          <ul class="treeview-menu " >
+            <li class={{call_user_func_array('Request::is', (array)['/admin/footer/contact-us*']) ? 'active_subtab' : ''}}><a class="treeview-item active" href="{{url('admin/footer/contact-us')}}"><i class="icon fa fa-podcast"></i> Footer Cantact us</a>
+            </li>
+
+          </ul>
+        </li>
+
          <li class="treeview {{ Request::segment(2) == 'logo' ? 'is-expanded ' : '' || Request::segment(2) == 'logo' ? 'is-expanded ' : '' }}"><a class="app-menu__item " href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Logos</span><i class="treeview-indicator fa fa-angle-right" ></i></a>
 
           <ul class="treeview-menu " >

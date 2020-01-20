@@ -19,55 +19,56 @@
 		    </div>
 			@endif
 		</div>
-		<div class="row">
-			<div class="col-md-12 col-xl-12">
-				<div class="card shadow-xs">
-					<div class="card-body">
-						<div class="row form-group">								
-							<form method="post" action="{{route('footer-contents.store')}}" enctype='multipart/form-data'>
-							@csrf
-							    <div class="row">
-							    <div class="col form-group">
-							    	<label for="">Heading	</label>
-							    	<input style="width: 311px;" type="heading" name="heading" id="heading"><br>
-							    	@error('heading')
-                                      <span class="text-danger" role="alert">
-                                          <strong>{{ $message }}</strong>
-                                      </span>
-                                	@enderror
-							    </div>
-							    <div class="col form-group">
-							    	<label for="">Logo</label>
-							    	<input style="width: 311px;" type="file" name="logo" id="image" class="image"><br>
-							    	<div class="image" style="height: 30px;"></div>
-							    	@error('logo')
-                                      <span class="text-danger" role="alert">
-                                          <strong>{{ $message }}</strong>
-                                      </span>
-                                	@enderror
-							    </div>
-							    <div class="col form-group">
-							    	<label for="">Contents</label>
-							    	<textarea style="max-height: 101px;" name="content" id="content" class="form-control" cols="30" rows="10"></textarea>
-							    	@error('content')
-                                      <span class="text-danger" role="alert">
-                                          <strong>{{ $message }}</strong>
-                                      </span>
-                                	@enderror
-							    </div>
-							</div>
-							<div class="row mb-5 mt-3">
-								<div class="col-md-12 col-sm-12 text-center" >
-									<input type="submit" value="Submit" class="btn btn-primary"> 
-								</div>
-							</div>	
-						</form>
-					</div>
-				</div>
-			</div>
-			</div>
-		</div>
+							
+	<div class="row">
+        <div class="col-md-12">
+          <div class="tile">
+            <h3 class="tile-title"> Footer contact us Section</h3>
+            <div class="tile-body">
+              <form method="post" action="{{route('footer-contents.store')}}" enctype='multipart/form-data'>
+				@csrf
+                <div class="row">
+                <div class="form-group col-md-4" >
+                  <label class="control-label">Address</label>
+                  <textarea class="form-control" rows="4" placeholder="Enter your address" name="address"></textarea>
+                  @error('address')
+	                  <span class="text-danger" role="alert">
+	                      <strong>{{ $message }}</strong>
+	                  </span>
+            	@enderror
+                </div>
+                <div class="form-group col-md-4" >
+                  <label class="control-label">Phone number</label>
+                  <input class="form-control" type="number" placeholder="Enter phone number" name="phone">
+                  @error('phone')
+	                  <span class="text-danger" role="alert">
+	                      <strong>{{ $message }}</strong>
+	                  </span>
+            	@enderror
+                </div>
+                
+                <div class="form-group col-md-4" >
+                  <label class="control-label">Email</label>
+                  <input class="form-control" type="email" placeholder="Enter Email Address" name="email">
+                  @error('email')
+	                  <span class="text-danger" role="alert">
+	                      <strong>{{ $message }}</strong>
+	                  </span>
+            	@enderror
+                </div>
+              </div>
+            </div>
+            <div class="tile-footer">
+              <button class="btn btn-primary" type="button"><i class="fa fa-fw fa-lg fa-check-circle"></i>Submit</button>
+            </div>
+           </form>
+            </div>
+          </div>
+        </div>
+      </div>
 	</div>
+						
+	
 </div>
 </main>
 <script>

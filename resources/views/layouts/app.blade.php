@@ -10,7 +10,7 @@
 
   {{-- <img src="{{URL::asset('/image/loc.png')}}" alt="profile Pic" height="200" width="200"> --}}
   <link rel = "icon" href ="{{asset('/storage/images/loc.png')}}" type = "image/x-icon" style="line-height: 50px; width: 100px;" >
-    <title >Liber Solution</title>
+    <title >Liber Solutions</title>
     {{-- <img src="{{ asset('/images/loc.png') }}"> --}}
   {{--   <link rel="icon" type="image/ico" href="{{ asset('/images/loc.png') }}" />
     <link rel="shortcut icon" type="image/png" href="loc.png"/>  --}}
@@ -25,8 +25,8 @@
     <script src="{{ asset('touchswipe/jquery.touch-swipe.min.js')}}"></script>
     <script src="{{ asset('parallax/jarallax.min.js')}}"></script>
     <script src="{{ asset('smoothscroll/smooth-scroll.js')}}"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+{{--     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> --}}
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">  
@@ -103,10 +103,10 @@
                     <li class="nav-item">
                         <a class="nav-link link text-white display-4" href="{{ '/' }}">Home</a>
                     </li>
-
                     <li class="nav-item">
-                        <a class="nav-link link text-white display-4" href="{{ '/contactus' }}">Contact us</a>
+                        <a class="nav-link link text-white display-4" href="{{ '/aboutus' }}">About </a>
                     </li>
+                    
                      <li class="nav-item">
                         <a class="nav-link link text-white display-4" href="{{ '/products' }}">Products</a>
                     </li>
@@ -119,8 +119,9 @@
                         <a class="nav-link link text-white display-4" href="{{ '/career' }}">Career</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link link text-white display-4" href="{{ '/aboutus' }}">About us</a>
+                        <a class="nav-link link text-white display-4" href="{{ '/contactus' }}">Contact </a>
                     </li>
+                    
                 {{-- @guest --}}
                  {{--    <li class="nav-item">
                         <a class="nav-link link text-white display-4" href="{{ '/login' }}">Login</a>
@@ -149,34 +150,21 @@
             <div class="footer-wrapper footer">
                   <div class="container footer">
                     <div class="row">
-                      <div class="col-sm-3 col-md-4" > 
+                      <div class="col-sm-0 col-md-5" > 
                         {{-- <img src="images/law-icon.png" alt="" data-popupalt-original-title="null" title="" width="50px"> --}}
                         <span class="navbar-caption-wrap ml-3">
                             <a class="navbar-caption text-white display-5" style="font-size:40px" href="{{ '/' }}"> <h3>Our Group And Companies </h3></a></span>
                           <div class="mt-3">
                             <ul class="wfoot_content" >
-
-                             <li><i class="fa fa-angle-double-right"></i><a target="_blank" href="http://www.laxyo.com/"> Laxyo Energy Pvt. Ltd.</a></li>
-                             
-                                <li><i class="fa fa-angle-double-right"></i><a target="_blank" href="http://www.adlaw.in/"> Adlaw</a></li>
-
-                              <li><i class="fa fa-angle-double-right"></i><a target="_blank" href="https://www.courtsjudgments.com/"> Courts Judgments</a></li>
-
-                             <li><i class="fa fa-angle-double-right"></i><a target="_blank" href="http://www.apnagps.com/"> Apna GPS</a></li>
-
-                              <li><i class="fa fa-angle-double-right"></i><a target="_blank" href="http://www.advocatemail.com/"> Advocat Email</a></li>
-                              <li><i class="fa fa-angle-double-right"></i><a target="_blank" href="http://www.discountbrandfactory.com/"> Discount Brand Factory</a></li>
-
-                              <li><i class="fa fa-angle-double-right"></i><a target="_blank" href="http://www.laxyofinance.com/"> Laxyo Finance Limited</a></li>
-                              <li><i class="fa fa-angle-double-right"></i><a target="_blank" href="http://www.yolaxinfra.com/"> Yolax Infranergy Pvt. Ltd.</a></li>
-                               <li><i class="fa fa-angle-double-right"></i><a target="_blank" href="http://lakshyainternationalschool.org/"> Lakshya International School</a></li>
-                              
-                              <li><i class="fa fa-angle-double-right"></i><a target="_blank" href="http://www.maagayatrihospital.org/"> Maa Gayatri Hospital</a></li>
+                              <?php
+                                $footer = session()->get('footer');
+                                foreach ($footer as $value) { ?>
+                             <li><i class="fa fa-angle-double-right"></i><a target="_blank" href= {{$value->url}}>{{$value->heading}} </a></li>
+                             <?php }?>
                             </ul>
                        </div>
-                        
                       </div>
-                        <div class="col-sm-3 col-md-4 "> 
+                        <div class="col-sm-4 col-md-5"> 
                         {{-- <img src="images/law-icon.png" alt="" data-popupalt-original-title="null" title="" width="50px"> --}}
                         <span class="navbar-caption-wrap ml-3">
                             <a class="navbar-caption text-white display-5" style="font-size:40px" href="{{ '/' }}"> <h3>Contacts Us</h3> </a></span>
@@ -186,8 +174,8 @@
                             <li><i class="fa fa-map-marker"></i>
                               <p>Laxyo House, Plot No.-2,<br>County Park,  MR-5, Mahalaxmi Nagar, Indore</p>
                             </li>
-                            <li><i class="fa fa-phone"></i> <p><span>Phone</span>: +91-731-4996625</p> </li>
-                            <li><i class="fa fa-phone"></i> <p><span>Phone</span>: +91-731-4043798</p> </li>
+                            <li><i class="fa fa-phone"></i> <p><span>Phone</span>: +91-731-4996625,+91-731-4043798</p> </li>
+                            
                             <li><i class="fa fa-envelope"></i>
                               <p><span>E-mail</span>: info@laxyo.com</p>
                             </li><li>
@@ -196,33 +184,28 @@
                         </div>
                         
                       </div>
-                        <div class="col-sm-3 col-md-4"> 
+                        <div class="col-sm-4 col-md-2"> 
                         {{-- <img src="images/law-icon.png" alt="" data-popupalt-original-title="null" title="" width="50px"> --}}
                         <span class="navbar-caption-wrap ml-3">
-                            <a class="navbar-caption text-white display-5" style="font-size:40px" href="{{ '/' }}"><h3> Rig. Off. - Ratlam</h3></a></span>
+                            {{-- <a class="navbar-caption text-white display-5" style="font-size:40px" href="{{ '/' }}"><h3> Rig. Off. - Ratlam</h3></a></span> --}}
                        <div class="wfoot_content mt-3">
                            <ul class="contact-details-alt">
-                              <li><i class="fa fa-map-marker"></i>
-                                <p>Laxyo Tower, 46/1 T.I.T. Road, Ratlam (MP) 457001 </p>
-                              </li>
-                              <li><i class="fa fa-phone"></i>
-                                <p><span>Phone</span>: +91-7412-232432</p>
-                              </li>
-                              <li><i class="fa fa-fax"></i>
-                                <p><span>Fax</span>: +91-7412-232432</p>
-                              </li>
-                            </ul>
-
-                          </div>
-                          <ul class="social-icons" style="margin-left: 12px;">
+                              <ul class="social-icons" style="margin-left: 12px;">
                               <li><a class="fb" href="https://www.facebook.com/laxyoGroup/" data-placement="top" data-toggle="tooltip" title="Facbook" target="_blank"><i class="fa fa-facebook"></i></a></li>
                               <li><a class="twtr" href="https://twitter.com/LaxyoGroup" data-placement="top" data-toggle="tooltip" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a></li>
                               <li><a class="twtr" href="https://in.linkedin.com/in/laxyo-group-21242a118" data-placement="top" data-toggle="tooltip" title="Linkedin" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-             
-                        </ul>                      
+                        </ul>  
+                            </ul>
+
+                          </div>
+                                              
                       </div>
-                        <div class="container mt-4 footer">
-                          <div class="row">
+                     </div>
+                    </div>
+                  </div>
+                   <div class="copyright-wrapper">
+                      <div class="container">
+                        <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6">
                               <p class="copyright">Copyright © 2020 LAXYO -  All rights reserved.</p>
                             </div>
@@ -230,12 +213,11 @@
                               <p class="desined-by pull-right ">Designed And Developed by <span><a href="#" target="_blank" class="copywrite">Liber Solutions Pvt.Ltd.</a></span></p>
                             </div>
                           </div>
-                        </div>
-                     </div>
-                    </div>
-                  </div>
-                        
+
+                      </div>
+                    </div>     
               </div>
+              <a id="scrollUp" href="#top" style="position: fixed; z-index: 2147483647;"><i class="fa fa-angle-up"></i></a>
               </section>
               <style type="text/css">
                 a, a:hover {color: #fff;}
@@ -250,7 +232,7 @@
                 }
                 .carousel-fade .carousel-inner .active, .carousel-fade .carousel-inner .next.left, .carousel-fade .carousel-inner .prev.right {
                   max-height: 420px;}
-                  .banner-wrapper .carousel-control.left  {
+                  /*.banner-wrapper .carousel-control.left  {
                     background-image: none;
                     top: -202px;
                     z-index: 2;
@@ -263,7 +245,7 @@
                     z-index: 2;
                     position: relative;
                     margin-left: 67px;
-                }
+                }*/
                 .inner-page-wrapper.aboutus-wrapper {
                 padding: 10px 0 114px;}
                 .fa.fa-angle-double-right {
@@ -272,6 +254,33 @@
                   color: #fff;
               }
               .copywrite {color: #3c8dbc;}
+              
               </style>
+              <script type="text/javascript">
+                
+                  if ($('#scrollUp').length) {
+                    var scrollTrigger = 100, // px
+                        backToTop = function () {
+                            var scrollTop = $(window).scrollTop();
+                            if (scrollTop > scrollTrigger) {
+                                $('#scrollUp').addClass('show');
+                            } else {
+                                $('#scrollUp').removeClass('show');
+                            }
+                        };
+                    backToTop();
+                    $(window).on('scroll', function () {
+                        backToTop();
+                    });
+                    $('#scrollUp').on('click', function (e) {
+                        e.preventDefault();
+                        $('html,body').animate({
+                            scrollTop: 0
+                        }, 700);
+                    });
+                  }
+              </script>
+              
+  </body>
                      
 </html>

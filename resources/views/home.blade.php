@@ -4,25 +4,27 @@
 
 <section> 
     <!-- Banner Wrapper Start -->
+
     <div class="banner-wrapper">
       <div id="first-slider" class="carousel fade-carousel slide">
         <div id="carousel-example-generic" class="carousel slide carousel-fade"> 
           <!-- Overlay -->
           <div class="overlay"></div>
           <!-- Wrapper for slides -->
-          <div class="carousel-inner" role="listbox">
+          <div class="carousel-inner mob-slidercls" role="listbox" style="height: 600px;">
             <?php $count = 1 ; ?>
             @foreach($slideData as $datas)
             <div class="carousel-item slides {{ $count == 1 ? 'active':''}}">
               <div class="slide-{{$count++}}">
-                <img src="{{asset('storage/images/'.$datas->file)}}" alt="Barrister"/>
+                <img src="{{asset('/storage/images/'.$datas->file)}}" alt="Barrister"/>
+                {{-- <img src="http://www.libersolution.com/storage/app/public/images/web-development.jpg"> --}}
               </div>
               <div class="row">
                 <div class="container">
                   <div class="hero">
-                    <img class="icon" data-animation="animated bounceInLeft" src="{{asset('storage/images/'.$datas->logo)}}" alt=""> <h2 data-animation="animated bounceInLeft" class=""><span>{{$datas->contents}}</span></h2>
-                   
-                    <a class="btn-one" data-animation="animated bounceInLeft" href="javascript:void(0)">Request a free consultation</a></div>
+                    <img class="icon" data-animation="animated bounceInLeft" src="{{asset('storage/images/'.$datas->logo)}}" alt="" style="width: 300px;margin: auto;display: block;"> <h2 data-animation="animated bounceInLeft" class=""><span class="slidebar-content">{{$datas->contents}}</span></h2>
+                   </div>
+                    {{-- <a class="btn-one" data-animation="animated bounceInLeft" href="javascript:void(0)">Request a free consultation</a></div> --}}
                 </div>
               </div>
             </div>
@@ -34,7 +36,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> 
 </section>
 <section> 
 <div class="container"> 
@@ -43,7 +45,7 @@
       <div class="title"> <span class="title-border-img"><img src="images/h1-line-img1.png" alt=""></span>
         <h2>Products</h2>
       </div>
-      <div class="row" style="margin-bottom: 30px;">
+    <div class="row" style="margin-bottom: 30px;">
     <?php $count = 1; ?>
       @foreach($productAndServices as $productAndServices)
         <div class="col-md-6 mt" style="margin-bottom: 30px;">
@@ -103,4 +105,7 @@
 <script type="text/javascript">
     $('.carousel').carousel();
 </script>
+<style type="text/css">
+  
+</style>
 @endsection

@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Admin\\footerContactus' => $baseDir . '/app/Admin/footerContactus.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\AdminSection\\About\\AboutUsController' => $baseDir . '/app/Http/Controllers/AdminSection/About/AboutUsController.php',
@@ -13,6 +14,7 @@ return array(
     'App\\Http\\Controllers\\AdminSection\\ContactFormController' => $baseDir . '/app/Http/Controllers/AdminSection/ContactFormController.php',
     'App\\Http\\Controllers\\AdminSection\\Contactus\\ContactusController' => $baseDir . '/app/Http/Controllers/AdminSection/Contactus/ContactusController.php',
     'App\\Http\\Controllers\\AdminSection\\FooterController' => $baseDir . '/app/Http/Controllers/AdminSection/FooterController.php',
+    'App\\Http\\Controllers\\AdminSection\\Footer\\FooterForContactus' => $baseDir . '/app/Http/Controllers/AdminSection/Footer/FooterForContactus.php',
     'App\\Http\\Controllers\\AdminSection\\Home\\MainController' => $baseDir . '/app/Http/Controllers/AdminSection/Home/MainController.php',
     'App\\Http\\Controllers\\AdminSection\\Home\\PlatformAndFramework' => $baseDir . '/app/Http/Controllers/AdminSection/Home/PlatformAndFramework.php',
     'App\\Http\\Controllers\\AdminSection\\Home\\ProductAndServices' => $baseDir . '/app/Http/Controllers/AdminSection/Home/ProductAndServices.php',

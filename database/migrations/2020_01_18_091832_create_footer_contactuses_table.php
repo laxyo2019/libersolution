@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFooterContentTable extends Migration
+class CreateFooterContactusesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class CreateFooterContentTable extends Migration
      */
     public function up()
     {
-        Schema::create('footer_contents', function (Blueprint $table) {
+        Schema::create('footer_contactuses', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('heading');
-            $table->string('url');
             $table->timestamps();
         });
     }
@@ -28,6 +26,6 @@ class CreateFooterContentTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('footer_content');
+        Schema::dropIfExists('footer_contactuses');
     }
 }

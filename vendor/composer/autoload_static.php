@@ -387,6 +387,7 @@ class ComposerStaticInit3333c11508f3358c5b9e5ee7d3ca6914
     );
 
     public static $classMap = array (
+        'App\\Admin\\footerContactus' => __DIR__ . '/../..' . '/app/Admin/footerContactus.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\AdminSection\\About\\AboutUsController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminSection/About/AboutUsController.php',
@@ -394,6 +395,7 @@ class ComposerStaticInit3333c11508f3358c5b9e5ee7d3ca6914
         'App\\Http\\Controllers\\AdminSection\\ContactFormController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminSection/ContactFormController.php',
         'App\\Http\\Controllers\\AdminSection\\Contactus\\ContactusController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminSection/Contactus/ContactusController.php',
         'App\\Http\\Controllers\\AdminSection\\FooterController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminSection/FooterController.php',
+        'App\\Http\\Controllers\\AdminSection\\Footer\\FooterForContactus' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminSection/Footer/FooterForContactus.php',
         'App\\Http\\Controllers\\AdminSection\\Home\\MainController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminSection/Home/MainController.php',
         'App\\Http\\Controllers\\AdminSection\\Home\\PlatformAndFramework' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminSection/Home/PlatformAndFramework.php',
         'App\\Http\\Controllers\\AdminSection\\Home\\ProductAndServices' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminSection/Home/ProductAndServices.php',

@@ -26,7 +26,7 @@
             @foreach($slideData as $datas)
             <div class="carousel-item slides {{ $count == 1 ? 'active':''}}">
               <div class="slide-{{$count++}}">
-                <img src="{{asset('storage/images/'.$datas->file)}}" alt="Barrister"/>
+                <img src="{{asset('/storage/app/public/images/'.$datas->file)}}" alt="Barrister"/>
               </div>
               <div class="row">
                 <div class="container">

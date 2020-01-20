@@ -37,6 +37,9 @@ Route::get('/career', 'HomeController@career');
 Route::get('/products', 'HomeController@products');
 Route::get('/services', 'HomeController@services');
 
+// Route::get('/', 'FooterController@home');
+
+
 
 Route::resource('/contact','ContactFormController');
 Route::resource('/career', 'AdminSection\CareerController');
@@ -56,6 +59,9 @@ Route::resource('/admin/our-products', 'AdminSection\OurProductsController');
 Route::resource('/admin/our-services', 'AdminSection\OurServicesController');
 
 Route::resource('/admin/footer-contents', 'AdminSection\FooterController');
+
+Route::resource('/admin/footer/contact-us', 'AdminSection\Footer\FooterForContactus');
+
 Route::get('/terms', 'AdminSection\FooterController@terms')->name('terms');
 // Route::get('/services', 'AdminSection\FooterController@services')->name('services');
 
