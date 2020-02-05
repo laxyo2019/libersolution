@@ -94,7 +94,7 @@
                         $headerSession = session()->get('headerLogo');
                           foreach ($headerSession as $value) { ?>
                             
-                        <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-5" href="{{ '/' }}"><img src="{{asset('storage/images/'.$value->logo)}}" alt="" data-popupalt-original-title="null" title="" width="32px"> <span>{{$value->title}}</span></a></span>
+                        <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-5" href="{{ '/' }}">{{-- <img src="{{asset('storage/images/'.$value->logo)}}" alt="" data-popupalt-original-title="null" title="" width="32px"> --}} <span>{{$value->title}}</span></a></span>
                         <?php } ?>
                     </div>
                 </div>
@@ -153,7 +153,7 @@
                       <div class="col-sm-0 col-md-5" > 
                         {{-- <img src="images/law-icon.png" alt="" data-popupalt-original-title="null" title="" width="50px"> --}}
                         <span class="navbar-caption-wrap ml-3">
-                            <a class="navbar-caption text-white display-5" style="font-size:40px" href="{{ '/' }}"> <h3>Our Group And Companies </h3></a></span>
+                            <a class="navbar-caption text-white display-5" style="font-size:40px" href="{{ '/' }}"> <h3>Our Group and Companies </h3></a></span>
                           <div class="mt-3">
                             <ul class="wfoot_content" >
                               <?php
@@ -231,7 +231,13 @@
                     padding-block: inherit;
                 }
                 .carousel-fade .carousel-inner .active, .carousel-fade .carousel-inner .next.left, .carousel-fade .carousel-inner .prev.right {
-                  max-height: 420px;}
+                  max-height: 600px;}
+                  /*.transition3s.glyphicon.glyphicon-chevron-right.fa.fa-angle-right {
+                      margin-top: 100px;
+                  }
+                  .transition3s.glyphicon.glyphicon-chevron-left.fa.fa-angle-left {
+                      margin-top: 100px;
+                  }*/
                   /*.banner-wrapper .carousel-control.left  {
                     background-image: none;
                     top: -202px;

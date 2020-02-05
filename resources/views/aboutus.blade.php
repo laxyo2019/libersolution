@@ -26,18 +26,19 @@
             @foreach($slideData as $datas)
             <div class="carousel-item slides {{ $count == 1 ? 'active':''}}">
               <div class="slide-{{$count++}}">
-                <img src="{{asset('/storage/app/public/images/'.$datas->file)}}" alt="Barrister"/>
+                <img src="{{asset('/storage/images/'.$datas->file)}}" alt="Barrister"/>
               </div>
               <div class="row">
                 <div class="container">
                   <div class="hero">
-                     <img class="icon" data-animation="animated bounceInLeft" src="images/header-law-icon.png" alt=""> <h1>Aboutus</h1>
-                      <div class="inner-breadcrumb">
+                    <div class="sidebar-logo" style="max-width: 138px; max-height: 113px; margin-left: 500px;"><img class="icon" data-animation="animated bounceInLeft" src="{{asset('storage/images/'.$datas->logo)}}" alt=""> </div> <div class="sidebar-content" style="margin-right: 500px;"><h1>About</h1>
+                      <div class="inner-breadcrumb" s>
                         <ul>
                           <li><a href="{{ '/' }}">Home</a></li>
                           <li> About Us</li>
                         </ul>
                       </div>
+                    </div>
                     </div>
                 </div>
               </div>
@@ -59,14 +60,14 @@
   <?php $count = 1; ?>
       @foreach($aboutData as $data)
       @if($data->id%2==0)
-    <div class="row  m-top-50" >
-      <div class="col-sm-5 col-md-5">
-        <div class="feature-box">
-          <div class="shape">
-            <div class="img"> <img src="{{asset('storage/images/'.$data->logo)}}" alt="Barrister"/></div>
+        <div class="row  m-top-50" >
+          <div class="col-sm-5 col-md-5">
+            <div class="feature-box">
+              <div class="shape">
+                <div class="img"> <img src="{{asset('storage/images/'.$data->logo)}}" alt="Barrister"/></div>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
       <div class="col-sm-7">
         <div class="about-text">
           {{-- <h3>{{$data->title}}</h3> --}}
@@ -113,5 +114,6 @@
 </div>
 <style type="text/css">
   
+
 </style>
 @endsection

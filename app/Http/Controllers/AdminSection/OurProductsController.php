@@ -41,6 +41,7 @@ class OurProductsController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate(['product_title'=>'required','product_url'=>'required','content'=>'required','file'=>'required']);
+        
         $filename = $request->file('file')->getClientOriginalName();
         $extension = $request->file('file')->getClientOriginalExtension();
         $fileNameToStore = $filename;              

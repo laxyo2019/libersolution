@@ -7,7 +7,10 @@ use App\Http\Controllers\Controller;
 use App\Models\Admin\Home;
 use App\Models\CareerModel;
 use DB;
+use File;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendMailable;
 
 class CareerController extends Controller
 {
@@ -48,10 +51,22 @@ class CareerController extends Controller
         $filename        = $request->file('file')->getClientOriginalName();
         $extension       = $request->file('file')->getClientOriginalExtension();
         $fileNameToStore = $filename;          
-        $path            = $request->file('file')->storeAs('public/career-docs',$fileNameToStore);
+        //$path            = $request->file('file')->storeAs('public/career-docs',$fileNameToStore);
+        $path            = $request->file('file')->store('career-docs', 'public');
         $data['file']    = $fileNameToStore;
         $data1           = CareerModel::create($data);
+
         if ($data1) {
+            $content = File::get('storage/'.$path);
+            
+            $applicantData = array(
+                'data' => $data,
+                'file' => $content,
+                'exe' => $extension,
+            );
+
+            Mail::to('kishankewat@gmail.com')->send(new SendMailable($applicantData));
+
             return redirect()->back()->with('message', 'Career send successfully');
         }else{
             return redirect()->back()->with('messageError', 'Career Not added');

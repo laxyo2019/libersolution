@@ -55,7 +55,7 @@
 							    </div>
 							    <div class="col form-group">
 							    	<label for="">Contents</label>
-							    	<textarea style="max-height: 101px;" name="content" id="content" class="form-control" cols="30" rows="10"></textarea>
+							    	<textarea style="max-height: 101px;" name="content" id="summary-ckeditor" class="form-control" cols="30" rows="10"></textarea>
 							    	@error('content')
                                       <span class="text-danger" role="alert">
                                           <strong>{{ $message }}</strong>
@@ -77,7 +77,10 @@
 	</div>
 </div>
 </main>
+<script src="//cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
 <script>
+    CKEDITOR.replace( 'summary-ckeditor' );
+    
 $(document).ready(function(){
 	$(".image").change(function () {
         var img_id = $(this).attr('id');

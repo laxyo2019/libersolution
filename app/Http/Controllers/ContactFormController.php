@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\ContactForm;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendmailContact;
 
 class ContactFormController extends Controller
 {
@@ -38,8 +40,11 @@ class ContactFormController extends Controller
         
         $data = $request->validate(['name'=>'required','phone'=>'required','email'=>'required','message'=>'required']);
         if($data){
+
             ContactForm::create($data);
-            return redirect()->back()->with('success','Send  Successfully.');
+            Mail::to('kishankewat@gmail.com')->send(new SendmailContact($data));
+
+            return redirect()->back()->with('success','Send message successfully.');
          }
     }
 

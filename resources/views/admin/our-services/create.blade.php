@@ -47,14 +47,20 @@
                                       </span>
                                 	@enderror
 							    </div>
-							    <div class="col form-group">
-							    	<label for="">Contents</label>
-							    	<textarea style="max-height: 101px;" name="content" id="content" class="form-control" cols="30" rows="10"></textarea>
-							    	@error('content')
-                                      <span class="text-danger" role="alert">
-                                          <strong>{{ $message }}</strong>
-                                      </span>
-                                	@enderror
+							    
+							    <div class="row">
+							    	<div class="container">
+							    		<div class="col form-group">
+									    	<label for="">Contents</label>
+									    	{{-- <textarea style="max-height: 101px;" name="content" id="content" class="form-control" cols="30" rows="10"></textarea> --}}
+									    	<textarea class="form-control" id="summary-ckeditor" name="content"></textarea>
+									    	@error('content')
+		                                      <span class="text-danger" role="alert">
+		                                          <strong>{{ $message }}</strong>
+		                                      </span>
+		                                	@enderror
+									    </div>
+							    	</div>
 							    </div>
 							</div>
 							<div class="row mb-5 mt-3">
@@ -71,6 +77,10 @@
 	</div>
 </div>
 </main>
+<script src="//cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace( 'summary-ckeditor' );
+</script>
 <script>
 $(document).ready(function(){
 	$(".image").change(function () {

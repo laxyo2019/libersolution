@@ -39,7 +39,7 @@
                                 	@enderror
 							    </div>
 							    <div class="col form-group">
-							    	<label for="">Logo</label>
+							    	<label for="">Logo</label><br>
 							    	<input style="width: 311px;" type="file" name="logo" id="logo" value="{{$data->logo}}"><br>
 							    	<td><img src="{{asset("storage/images/$data->logo")}}" height="50px" width="50px" style="border-radius: 40%;" /></td>
 							    	@error('logo')
@@ -48,15 +48,20 @@
                                       </span>
                                 	@enderror
 							    </div>
-							    <div class="col form-group">
+							    
+							</div>
+							<div class="row">
+								<div class="container">
+									<div class="col form-group">
 							    	<label for="">Contents</label>
-							    	<textarea style="max-height: 101px;" name="content" id="content" value="{{$data->content}}" class="form-control" cols="30" rows="10">{{$data->content}}</textarea>
+							    	<textarea style="max-height: 101px; width:1000px;"" name="content" id="summary-ckeditor" value="{{$data->content}}" class="form-control" cols="30" rows="10">{{$data->content}}</textarea>
 							    	@error('content')
                                       <span class="text-danger" role="alert">
                                           <strong>{{ $message }}</strong>
                                       </span>
                                 	@enderror
 							    </div>
+								</div>
 							</div>
 							<div class="row mb-5 mt-3">
 								<div class="col-md-12 col-sm-12 text-center" >
@@ -72,4 +77,8 @@
 	</div>
 </div>
 </main>
+<script src="//cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace( 'summary-ckeditor' );
+</script>
 @endsection

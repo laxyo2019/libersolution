@@ -52,7 +52,7 @@
 								<td >
 									<span class="ml-2">
 										<form  action="{{route('career.destroy',$getDatas->id)}}" method="POST" id="delform_{{ $getDatas->id}}">
-												@csrf
+										@csrf
 											@method('DELETE')
 											<a href="javascript:$('#delform_{{ $getDatas->id}}').submit();" class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure?')"><i class="fa fa-trash" ></i> Delete</a>
 										</form>

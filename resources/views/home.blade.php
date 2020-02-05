@@ -4,8 +4,18 @@
 
 <section> 
     <!-- Banner Wrapper Start -->
-
+{{-- <div class="container remove-padding">
+      <div class="col-xs-5 col-md-6 remove-padding-top-header">
+        <i class="fa fa-phone"> <span>+0731-4996625</span></i>
+      </div>
+      <div class="col-xs-7 col-md-6 right remove-padding-top-header">
+        <i class="fa fa-envelope">
+          <span>hr[at]laxyosolutionsoft.com</span>
+        </i>
+      </div>
+    </div> --}}
     <div class="banner-wrapper">
+
       <div id="first-slider" class="carousel fade-carousel slide">
         <div id="carousel-example-generic" class="carousel slide carousel-fade"> 
           <!-- Overlay -->
@@ -22,10 +32,14 @@
               <div class="row">
                 <div class="container">
                   <div class="hero">
-                    <img class="icon" data-animation="animated bounceInLeft" src="{{asset('storage/images/'.$datas->logo)}}" alt="" style="width: 300px;margin: auto;display: block;"> <h2 data-animation="animated bounceInLeft" class=""><span class="slidebar-content">{{$datas->contents}}</span></h2>
+                    <img class="icon" data-animation="animated bounceInLeft" src="{{asset('storage/images/'.$datas->logo)}}" alt="" style="width: 236px;margin: auto;display: block;"> <h2 data-animation="animated bounceInLeft" class="">
+
+                      <span class="slidebar-content">{{$datas->contents}}</span></h2>
                    </div>
+
                     {{-- <a class="btn-one" data-animation="animated bounceInLeft" href="javascript:void(0)">Request a free consultation</a></div> --}}
                 </div>
+
               </div>
             </div>
             @endforeach
@@ -49,13 +63,13 @@
     <?php $count = 1; ?>
       @foreach($productAndServices as $productAndServices)
         <div class="col-md-6 mt" style="margin-bottom: 30px;">
-          <div class="callouts callout-img{{$count++}}" style="max-height: 500px;min-height: 500px;">
-           <a href="{{$productAndServices->product_url}}"  target="_blank"><h3>{{$productAndServices->product_title}}</h3>
+          <div class="callouts callout-img1" style="max-height: 500px;min-height: 500px; background: #08a9af;">
+           <a href="{{$productAndServices->product_url}}"  target="_blank"><h3 class="product-title">{{$productAndServices->product_title}}</h3>
             <span class="callouts-line">
-              <img src="{{asset('storage/images/'.$productAndServices->file)}}" alt="" width="100px;" height="100px;" style="margin-top: 60px;">
+              <img src="{{asset('storage/images/'.$productAndServices->file)}}"  style="margin-top: 60px;  width: 206px;height: 103px; margin-top: 20px;">
             </span></a>
-            <div class="product-content">
-              <p>{{$productAndServices->content}}</p>
+            <div class="product-content teaser">
+             <?php echo $productAndServices->content; ?>
             </div>
             <div class="btn-one " style="margin-top: 60px;">
               <a href="{{route('product-view',$productAndServices->id)}}" target="_blank" >Read More</a> 
@@ -89,7 +103,7 @@
                   <a href="{{route('service',$platformAndFrameworks->id)}}" target="_blank"><img src="{{asset('storage/images/'.$platformAndFrameworks->logo)}}" alt="" width="50%" height="50%"></a>
                 </div>
                 <div class="teaser more service-content" >
-                {{ $platformAndFrameworks->content}}
+                <?php echo  $platformAndFrameworks->content; ?>
                 </div>
                 <a  href="{{route('service-view',$platformAndFrameworks->id)}}" target="_blank" >Read More</a>
                 {{-- <div class="icon-box"><img src="images/service-item-icon1.png" alt=""></div> --}}
@@ -98,14 +112,14 @@
             </div>
           @endforeach
         </div>
-    </div> 
-
+    </div>
 </section>
-
 <script type="text/javascript">
     $('.carousel').carousel();
 </script>
 <style type="text/css">
-  
+  .slidebar-content {
+    
+}
 </style>
 @endsection

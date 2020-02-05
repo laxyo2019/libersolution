@@ -59,7 +59,7 @@
 							    </div>
 							    <div class="col form-group">
 							    	<label for="">Contents</label>
-							    	<textarea style="max-height: 101px;" name="content" id="content" value="{{$data->content}}" class="form-control" cols="30" rows="10">{{$data->content}}</textarea>
+							    	<textarea style="max-height: 101px;" name="content" id="summary-ckeditor" value="{{$data->content}}" class="form-control" cols="30" rows="10">{{$data->content}}</textarea>
 							    	@error('content')
                                       <span class="text-danger" role="alert">
                                           <strong>{{ $message }}</strong>
@@ -81,4 +81,8 @@
 	</div>
 </div>
 </main>
+<script src="//cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace( 'summary-ckeditor' );
+</script>
 @endsection
